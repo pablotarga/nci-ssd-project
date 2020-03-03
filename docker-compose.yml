@@ -1,0 +1,34 @@
+version: "3"
+services:
+  web:
+    image: nci-ssd-project:latest
+    build: .
+    ports:
+      - 3000:80
+    depends_on:
+      - db
+    volumes:
+      - .:/opt/app
+    command: ["rails", "s", "-b", "0.0.0.0", "-p", "80"]
+    environment:
+      RAILS_ENV: development
+      CONNECTION_URL: mongodb://root:secretpassword@db:27017/nci-ssd-project
+      PORT: 80
+      DOMAIN: localhost
+      SECRET_KEY_BASE: abc1234567
+
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - nci-ssd-mongo:/data/db
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: nci-ssd-project
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secretpassword
+
+volumes:
+  nci-ssd-mongo:
+    driver: local
