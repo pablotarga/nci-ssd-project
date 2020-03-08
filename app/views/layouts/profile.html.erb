@@ -12,7 +12,18 @@
 
 <body>
   <%= render partial: 'shared/navbar'%>
-  <%= yield %>
+
+  <div class="container-fluid vh-100">
+    <div class="row collapse show no-gutters d-flex h-100 position-relative">
+      <div class="col-3">
+        Left Drawer
+      </div>
+
+      <div class="col">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
