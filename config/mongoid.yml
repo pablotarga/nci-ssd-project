@@ -1,0 +1,28 @@
+production:
+  clients:
+    default:
+      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>
+      options:
+        auth_mech: :scram
+        auth_source: admin
+  options:
+
+development:
+  clients:
+    default:
+      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>
+      options:
+        auth_mech: :scram
+        auth_source: admin
+  options:
+
+test:
+  clients:
+    default:
+      database: api_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
