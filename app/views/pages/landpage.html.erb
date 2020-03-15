@@ -1,3 +1,7 @@
 <h1><%= @title %> </h1>
 
 <p><%= __FILE__ %></p>
+
+<% if current_user.present? %>
+<p>Logged User: <%= current_user.id %> (<%= current_user._type %>) </p>
+<% end %>

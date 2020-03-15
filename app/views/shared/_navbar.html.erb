@@ -3,5 +3,9 @@
     <%= image_tag("logo.png", height: '30px')%>
   </a>
 
-  TEXT HERE
+  <% if current_user.present? %>
+    <%= link_to "LOGOUT", logout_path %>
+  <% else %>
+    <%= link_to "LOGIN", login_path %>
+  <% end %>
 </nav>
