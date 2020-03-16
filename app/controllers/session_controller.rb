@@ -1,23 +1,31 @@
 class SessionController < ApplicationController
+  layout 'full'
+
+  def new
+    @person = Person.new
+  end
 
   def create
-    # @user = Person.find_by(email: params[:email])
-    # @user = @user.authenticate(params[:password])
-    @user = User.first
-
-    if @user.present?
-      cookies[:user_id] = {
-        value: @user.id,
-        expires: 1.year,
-        httponly: true
-      }
+    if auth.by_email_and_password(**login_params)
+      cookies[:user_id] = auth.cookie_data
+      redirect_to root_path, notice: 'You are in!'
+    else
+      redirect_to new_login_path, alert: 'Invalid credentials'
     end
-
-    redirect_to :root
   end
 
   def destroy
     cookies.delete :user_id
-    redirect_to :root
+    redirect_to root_path, notice: 'Logged out!'
+  end
+
+  private
+
+  def auth
+    @auth ||= AuthService.new(request)
+  end
+
+  def login_params
+    extract_params :person, permit: [:email, :password]
   end
 end

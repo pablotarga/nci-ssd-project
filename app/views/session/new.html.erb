@@ -1,0 +1,31 @@
+<div class="align-items-center d-flex justify-content-center vh-100">
+
+
+  <div class="card mx-auto" style="width:100%;max-width:300px">
+    <div class="card-body">
+      <h5 class="card-title">Login</h5>
+
+      <p class="card-text">
+        <%= render partial: 'shared/alerts'%>
+      </p>
+
+
+      <p class="card-text">
+        <%= form_with(url: login_path) do %>
+        <div class="form-group">
+          <%= label_tag("person[email]", "Email") %>
+          <%= text_field_tag("person[email]", nil, class: 'form-control')%>
+        </div>
+        <div class="form-group">
+          <%= label_tag("person[password]", "Password") %>
+          <%= password_field_tag("person[password]", nil, class: 'form-control')%>
+        </div>
+
+        <%= submit_tag("Login", class: 'btn btn-primary') %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+
+</div>

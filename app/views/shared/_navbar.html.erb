@@ -6,6 +6,6 @@
   <% if current_user.present? %>
     <%= link_to "LOGOUT", logout_path %>
   <% else %>
-    <%= link_to "LOGIN", login_path %>
+    <%= link_to "LOGIN", new_login_path %>
   <% end %>
 </nav>
