@@ -7,6 +7,10 @@ class AuthService < ApplicationService
     @user = nil
   end
 
+  def by_user(user)
+    @user = user
+  end
+
   def by_email_and_password(email:, password:)
     @user = nil
 
@@ -20,10 +24,6 @@ class AuthService < ApplicationService
   end
 
   def cookie_data
-    {
-      value: self.user.id.to_s,
-      expires: 1.year,
-      httponly: true
-    }
+    CookieService.data(user)
   end
 end

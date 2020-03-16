@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  before_action :require_anonymous_or_guests, except: [:destroy]
   layout 'full'
 
   def new
@@ -15,15 +16,13 @@ class SessionController < ApplicationController
   end
 
   def destroy
+    current_user.destroy if current_user.is_a?(Guest)
+
     cookies.delete :user_id
     redirect_to root_path, notice: 'Logged out!'
   end
 
   private
-
-  def auth
-    @auth ||= AuthService.new(request)
-  end
 
   def login_params
     extract_params :person, permit: [:email, :password]

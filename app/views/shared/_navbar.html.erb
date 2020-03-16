@@ -3,7 +3,7 @@
     <%= image_tag("logo.png", height: '30px')%>
   </a>
 
-  <% if current_user.present? %>
+  <% if current_user.present? && current_user.is_a?(Person) %>
     <%= link_to "LOGOUT", logout_path %>
   <% else %>
     <%= link_to "LOGIN", new_login_path %>
