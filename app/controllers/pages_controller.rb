@@ -3,9 +3,8 @@ class PagesController < ApplicationController
 
   def landpage
     @title = "Hello World!"
-    # render 'show'
+    @products = Product.search(search_params).page(1)
   end
-
 
   # def index -> list all item
   # def show -> show specific item
@@ -14,5 +13,11 @@ class PagesController < ApplicationController
   # def create -> create action
   # def update -> update action
   # def destroy -> remove from db
+
+  private
+
+  def search_params
+    {}
+  end
 
 end
