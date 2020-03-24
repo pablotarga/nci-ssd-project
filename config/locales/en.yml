@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  add-to-cart: Add to Cart
+  product:
+    in_stock: In Stock
+    out_stock: Out of Stock
+  shared:
+    add_to_cart: Add to Cart
+  number:
+    currency:
+      format:
+        unit: '€'
+        delimiter: ','
+        separator: '.'
+        precision: 2
+        format: '%u%n'

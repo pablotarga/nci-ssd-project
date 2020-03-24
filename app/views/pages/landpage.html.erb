@@ -7,11 +7,18 @@
 <p>Logged User: <%= current_user.id %> (<%= current_user._type %>) </p>
 
 <% if current_user.is_a?(Person)%>
-  <dt>Name</dt>
-  <dd><%= current_user.name %></dd>
+<dt>Name</dt>
+<dd><%= current_user.name %></dd>
 
-  <dt>Email</dt>
-  <dd><%= current_user.email %></dd>
+<dt>Email</dt>
+<dd><%= current_user.email %></dd>
 <% end %>
 </dl>
 <% end %>
+
+
+<h1>Products</h1>
+
+<section class="products">
+  <%= render partial: 'product', collection: @products %>
+</section>
