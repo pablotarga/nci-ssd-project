@@ -19,10 +19,7 @@ development:
 test:
   clients:
     default:
-      database: api_test
-      hosts:
-        - localhost:27017
+      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>_test
       options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+        auth_mech: :scram
+        auth_source: admin

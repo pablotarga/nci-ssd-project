@@ -3,7 +3,7 @@ class Order
     include Mongoid::Timestamps
     include Mongoid::Enum
 
-    belongs_to :user
+    belongs_to :user, inverse_of: :orders
     has_many :order_items
     #has_many :payments
 
