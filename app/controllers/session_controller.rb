@@ -9,7 +9,7 @@ class SessionController < ApplicationController
   def create
     authentication = auth.by_email_and_password(**login_params)
     if authentication.success?
-      cookies[:user_id] = authentication.get(:cookie)
+      swap_cookie(authentication)
       redirect_to welcome_profile_path
     else
       redirect_to new_login_path, alert: 'Invalid credentials'
