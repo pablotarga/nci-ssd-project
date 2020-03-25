@@ -1,6 +1,7 @@
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Fetchable
 
   field :title, type: String
   field :quantity, type: Integer, default: 0
