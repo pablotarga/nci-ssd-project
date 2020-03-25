@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   get   '/register' => "register#new",    as: 'registration'
   post  '/register' => "register#create", as: 'register'
 
+
+  resource :profile, only: [] do
+    get :welcome, on: :collection
+  end
+
   root "pages#landpage"
 end

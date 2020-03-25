@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     params.require(base).permit(permit).to_h.symbolize_keys rescue fallback
   end
 
+  def require_person
+    redirect_to root_path unless current_user.is_a?(Person)
+  end
+
   def require_any_user
     redirect_to root_path unless current_user.is_a?(User)
   end

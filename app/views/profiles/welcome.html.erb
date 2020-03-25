@@ -1,0 +1,21 @@
+<div class="jumbotron col-md-6 mx-auto mt-4">
+  <h1 class="display-4"><%= t(current_user.has_last_auth_info? ? '.welcome_back' : '.welcome', raise: true) %> <%= current_user.name %>,</h1>
+  <p class="lead"><%= t('.current_ip')%> <%= current_user.current_auth_ip %></p>
+  <hr class="my-4">
+  <% if current_user.has_last_auth_info? %>
+    <dl>
+      <dt><%= t('shared.last_auth_at')%></dt>
+      <dd><%= l(current_user.last_auth_at, format: :long) %></dd>
+
+      <dt><%= t('shared.last_auth_ip')%></dt>
+      <dd><%= current_user.last_auth_ip %></dd>
+    </dl>
+  <% else %>
+    <p><%= t('.first_timer')%></p>
+  <% end %>
+  <% if current_user.has_shopping_cart? %>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('.see_shopping_cart')%></a>
+    </p>
+  <% end %>
+</div>
