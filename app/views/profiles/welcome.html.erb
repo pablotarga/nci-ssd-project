@@ -13,9 +13,10 @@
   <% else %>
     <p><%= t('.first_timer')%></p>
   <% end %>
-  <% if current_user.has_shopping_cart? %>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('.see_shopping_cart')%></a>
+      <% if current_user.has_shopping_cart? %>
+        <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('.see_shopping_cart')%></a>
+      <% end %>
+      <%= link_to t("shared.browse_products"), root_path, class: 'btn btn-link' %>
     </p>
-  <% end %>
 </div>

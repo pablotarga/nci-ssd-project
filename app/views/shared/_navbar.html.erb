@@ -4,8 +4,8 @@
   </a>
 
   <% if current_user.present? && current_user.is_a?(Person) %>
-    <%= link_to "LOGOUT", logout_path %>
+    <%= link_to t('shared.logout'), logout_path %>
   <% else %>
-    <%= link_to "LOGIN", new_login_path %>
+    <%= link_to t('shared.login'), new_login_path %>
   <% end %>
 </nav>

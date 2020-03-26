@@ -1,5 +1,14 @@
 en:
-  add-to-cart: Add to Cart
+  register:
+    new:
+      register: Register
+      go_to_login: Already have an account?
+      cta: Register
+  session:
+    new:
+      login: Login
+      go_to_registration: Don't have an account?
+      cta: Login
   profiles:
     welcome:
       welcome: Welcome
@@ -14,11 +23,20 @@ en:
     add_to_cart: Add to Cart
     last_auth_at: Last login at
     last_auth_ip: Last login IP
-  number:
-    currency:
-      format:
-        unit: '€'
-        delimiter: ','
-        separator: '.'
-        precision: 2
-        format: '%u%n'
+    browse_products: Browse Products
+    back: Back
+    logout: Logout
+    login: Login
+
+  errors:
+    invalid_credentials: Invalid Credentials
+
+  notices:
+    logout: Logged out with success!
+
+  mongoid:
+    attributes:
+      person:
+        name: Name
+        email: Email
+        password: Password

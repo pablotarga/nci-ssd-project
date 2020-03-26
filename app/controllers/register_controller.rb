@@ -12,7 +12,7 @@ class RegisterController < ApplicationController
       swap_cookie(registration.get(:user))
       redirect_to welcome_profile_path
     else
-      redirect_to registration_path
+      redirect_to registration_path, alert: registration.errors
     end
   end
 

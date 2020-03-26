@@ -3,32 +3,32 @@
 
   <div class="card mx-auto login-card">
     <div class="card-body">
-      <h5 class="card-title">Register</h5>
+      <h5 class="card-title"><%= t('.register')%></h5>
 
       <p class="card-text">
         <%= render partial: 'shared/alerts'%>
       </p>
 
       <p class="card-text">
-        <%= form_with(url: register_path) do %>
+        <%= form_for(Person.new, url: register_path) do |f| %>
         <div class="form-group">
-          <%= label_tag("person[name]", "Name") %>
-          <%= text_field_tag("person[name]", nil, class: 'form-control')%>
+          <%= f.label(:name) %>
+          <%= f.text_field(:name, class: 'form-control')%>
         </div>
         <div class="form-group">
-          <%= label_tag("person[email]", "Email") %>
-          <%= text_field_tag("person[email]", nil, class: 'form-control')%>
+          <%= f.label(:email) %>
+          <%= f.text_field(:email, class: 'form-control')%>
         </div>
         <div class="form-group">
-          <%= label_tag("person[password]", "Password") %>
-          <%= password_field_tag("person[password]", nil, class: 'form-control')%>
+          <%= f.label(:password) %>
+          <%= f.password_field(:password, class: 'form-control')%>
         </div>
 
-        <%= submit_tag("Login", class: 'btn btn-primary') %>
-        <%= link_to 'back', root_path, class:'btn btn-link' %>
+        <%= f.submit(t('.cta'), class: 'btn btn-primary') %>
+        <%= link_to t('shared.back'), root_path, class:'btn btn-link' %>
 
         <div class="form-group mt-3">
-          <%= link_to 'Already have an account?', login_path %>
+          <%= link_to t('.go_to_login'), login_path %>
         </div>
         <% end %>
       </p>
