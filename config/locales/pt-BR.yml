@@ -2,12 +2,12 @@ pt-BR:
   register:
     new:
       register: Nova Conta
-      go_to_login: Você já possue uma conta?
+      go_to_login: Você já possui uma conta?
       cta: Criar Nova Conta
   session:
     new:
       login: Entrar
-      go_to_registration: Ainda não possue uma conta?
+      go_to_registration: Ainda não possui uma conta?
       cta: Entrar
   profiles:
     welcome:
