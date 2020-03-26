@@ -10,7 +10,7 @@
       </p>
 
       <p class="card-text">
-        <%= form_for(Person.new, url: login_path) do |f| %>
+        <%= form_for(@person, url: login_path) do |f| %>
         <div class="form-group">
           <%= f.label(:email) %>
           <%= f.text_field(:email, class: 'form-control')%>
