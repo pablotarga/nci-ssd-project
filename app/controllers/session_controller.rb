@@ -7,11 +7,12 @@ class SessionController < ApplicationController
   end
 
   def create
-    if auth.by_email_and_password(**login_params)
-      cookies[:user_id] = auth.cookie_data
-      redirect_to root_path, notice: 'You are in!'
+    authentication = auth.by_email_and_password(**login_params)
+    if authentication.success?
+      swap_cookie(authentication)
+      redirect_to welcome_profile_path
     else
-      redirect_to new_login_path, alert: 'Invalid credentials'
+      redirect_to new_login_path, alert: I18n.t('errors.invalid_credentials')
     end
   end
 
@@ -19,7 +20,7 @@ class SessionController < ApplicationController
     current_user.destroy if current_user.is_a?(Guest)
 
     cookies.delete :user_id
-    redirect_to root_path, notice: 'Logged out!'
+    redirect_to root_path, notice: I18n.t('notices.logout')
   end
 
   private

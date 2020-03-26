@@ -7,20 +7,16 @@ class RegisterController < ApplicationController
   end
 
   def create
-    if service.register(person_params)
-      auth.by_user(service.user)
-      cookies[:user_id] = auth.cookie_data
-      redirect_to root_path, notice: 'You are in!'
+    registration = RegistrationService.register(person_params)
+    if registration.success?
+      swap_cookie(registration.get(:user))
+      redirect_to welcome_profile_path
     else
-      redirect_to registration_path
+      redirect_to registration_path, alert: registration.errors
     end
   end
 
   private
-
-  def service
-    @service ||= RegistrationService.new(guest: current_user)
-  end
 
   def person_params
     extract_params :person, permit: [:name, :email, :password]
