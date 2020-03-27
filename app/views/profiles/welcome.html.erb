@@ -4,10 +4,10 @@
   <hr class="my-4">
   <% if current_user.has_last_auth_info? %>
     <dl>
-      <dt><%= t('shared.last_auth_at')%></dt>
+      <dt><%= t('shared.last_auth_at') %></dt>
       <dd><%= l(current_user.last_auth_at, format: :long) %></dd>
 
-      <dt><%= t('shared.last_auth_ip')%></dt>
+      <dt><%= t('shared.last_auth_ip') %></dt>
       <dd><%= current_user.last_auth_ip %></dd>
     </dl>
   <% else %>
@@ -15,7 +15,7 @@
   <% end %>
     <p class="lead">
       <% if current_user.has_shopping_cart? %>
-        <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('.see_shopping_cart')%></a>
+        <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('shared.see_shopping_cart')%></a>
       <% end %>
       <%= link_to t("shared.browse_products"), root_path, class: 'btn btn-link' %>
     </p>

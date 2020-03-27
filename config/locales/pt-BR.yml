@@ -15,7 +15,6 @@ pt-BR:
       welcome_back: Bem vindo de volta
       first_timer: Esta é a primeira vez que você acessa o sistema
       current_ip: Seu IP atual é
-      see_shopping_cart: Acesse seu Carrinho
   product:
     in_stock: Em Estoque
     out_stock: Fora de Estoque
@@ -27,6 +26,8 @@ pt-BR:
     back: Voltar
     logout: Sair
     login: Entrar
+    see_shopping_cart: Acesse seu Carrinho
+
 
   errors:
     invalid_credentials: Email/Senha Inválidos
