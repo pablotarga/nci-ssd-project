@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   get   '/register' => "register#new",    as: 'registration'
   post  '/register' => "register#create", as: 'register'
 
+  get   '/about'  => "pages#about",  as: 'about'
+
+  get  '/contact', to: 'contact#new'
+  post '/contact', to: 'contact#create'
+
   root "pages#landpage"
 end
