@@ -35,6 +35,8 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.require_master_key = true
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
@@ -51,6 +53,22 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Laurine - added the next 2 lines for letter-opener
-  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  sendgrid = Rails.application.credentials.sendgrid
+  if sendgrid.present?
+    config.action_mailer.delivery_method = :smtp
+
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => sendgrid[:username],
+      :password       => sendgrid[:password],
+      :domain         => 'ncirl.ie',
+      :enable_starttls_auto => true
+    }
+  else
+    config.action_mailer.delivery_method = :letter_opener
+  end
 end
