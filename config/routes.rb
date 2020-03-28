@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   get  '/contact', to: 'contact#new'
   post '/contact', to: 'contact#create'
 
+  resource :profile, only: [] do
+    get :welcome, on: :collection
+  end
+
   root "pages#landpage"
 end

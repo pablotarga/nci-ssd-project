@@ -1,0 +1,44 @@
+pt-BR:
+  register:
+    new:
+      register: Nova Conta
+      go_to_login: Você já possui uma conta?
+      cta: Criar Nova Conta
+  session:
+    new:
+      login: Entrar
+      go_to_registration: Ainda não possui uma conta?
+      cta: Entrar
+  profiles:
+    welcome:
+      welcome: Bem vindo
+      welcome_back: Bem vindo de volta
+      first_timer: Esta é a primeira vez que você acessa o sistema
+      current_ip: Seu IP atual é
+      see_shopping_cart: Acesse seu Carrinho
+  product:
+    in_stock: Em Estoque
+    out_stock: Fora de Estoque
+  shared:
+    add_to_cart: Adicionar
+    last_auth_at: Último Acesso em
+    last_auth_ip: IP do Último Acesso
+    browse_products: Ver Produtos
+    back: Voltar
+    logout: Sair
+    login: Entrar
+
+  errors:
+    invalid_credentials: Email/Senha Inválidos
+
+  notices:
+    logout: Deslogou com sucesso!
+
+
+
+  mongoid:
+    attributes:
+      person:
+        name: Nome
+        email: Email
+        password: Senha

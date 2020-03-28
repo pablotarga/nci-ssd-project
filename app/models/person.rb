@@ -11,6 +11,11 @@ class Person < User
 
   field :admin, type: Boolean, default: false
 
+  field :current_auth_at, type: DateTime
+  field :current_auth_ip, type: String
+  field :last_auth_at, type: DateTime
+  field :last_auth_ip, type: String
+
   has_secure_password
 
   validates :email, uniqueness: true, presence: true, allow_blank: false
@@ -29,5 +34,13 @@ class Person < User
 
   def clear_reset_token!
     unset(:reset_token, :reset_token_expire_at)
+  end
+
+  def has_last_auth_info?
+    last_auth_at.present?
+  end
+
+  def has_shopping_cart?
+    orders.pending.exists?
   end
 end
