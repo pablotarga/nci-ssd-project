@@ -6,6 +6,10 @@ class PagesController < ApplicationController
     @products = Product.search(search_params).page(1)
   end
 
+  def about
+    @title = "About NCI GameStore"
+  end
+
   # def index -> list all item
   # def show -> show specific item
   # def edit -> edit form
