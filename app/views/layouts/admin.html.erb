@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin | <%= content_for?(:title) ? yield(:title) : 'Gamestore'%></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body id="admin-layout">
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar" class="d-flex flex-column">
+      <%= render partial: 'admin/sidebar'%>
+    </nav>
+
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <%= render partial: 'shared/alerts'%>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+
+</html>

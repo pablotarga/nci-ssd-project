@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark sticky-top text-light">
+<nav class="navbar navbar-dark bg-dark sticky-top text-light navbar-fixed">
   <%= link_to "NCI GameStore", root_path, class: "navbar-brand" %>
 
   <div class="navbar-toolbox">
@@ -8,7 +8,8 @@
       <%= navbar_link("fas fa-user-secret", t('shared.abandon'), logout_path) %>
       <%= navbar_link("fas fa-key", t('shared.login'), new_login_path) %>
     <% elsif current_user.is_a?(Person) %>
-      <%= navbar_link("fas fa-user", t('profile.title'), "#profile") %>
+      <%= navbar_link("fas fa-user", t('navbar.profile'), welcome_profile_path) %>
+      <%= navbar_link("fas fa-lock", t('navbar.admin'), admin_root_path) if current_user.admin? %>
       <%= navbar_link("fas fa-power-off", t('shared.logout'), logout_path) %>
     <% else %>
       <%= navbar_link("fas fa-key", t('shared.login'), new_login_path) %>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Gamestore</title>
+  <title><%= content_for?(:title) ? yield(:title) : 'Gamestore'%></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 

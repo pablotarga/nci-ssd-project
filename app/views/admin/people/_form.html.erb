@@ -1,0 +1,26 @@
+<%= form_for [:admin, @person] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :locale %>
+    <%= f.text_field :locale, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t('.save'),  class: 'btn btn-primary' %>
+    <%= link_to t('shared.back'), admin_people_path, class: 'btn btn-link'%>
+  </div>
+<% end %>
