@@ -55,7 +55,8 @@ Rails.application.configure do
   # Laurine - added the next 2 lines for letter-opener
   config.action_mailer.perform_deliveries = true
 
-  sendgrid = Rails.application.credentials.sendgrid
+  sendgrid = nil
+  # sendgrid = Rails.application.credentials.sendgrid
   if sendgrid.present?
     config.action_mailer.delivery_method = :smtp
 

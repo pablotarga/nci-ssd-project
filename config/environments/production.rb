@@ -85,4 +85,19 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  sendgrid = Rails.application.credentials.sendgrid
+  if sendgrid.present?
+    config.action_mailer.delivery_method = :smtp
+
+    ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => sendgrid[:username],
+      :password       => sendgrid[:password],
+      :domain         => 'ncirl.ie',
+      :enable_starttls_auto => true
+    }
+  end
 end
