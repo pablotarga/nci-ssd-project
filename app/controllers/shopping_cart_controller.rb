@@ -16,8 +16,9 @@ class ShoppingCartController < ApplicationController
   end
 
   private
+
   def service
-    ShoppingCartService.new(current_user)
+    @service ||= ShoppingCartService.new(current_user)
   end
 
   def update_params
