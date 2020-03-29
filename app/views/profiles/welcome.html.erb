@@ -14,6 +14,7 @@
     <p><%= t('.first_timer')%></p>
   <% end %>
     <p class="lead">
+    <%= link_to 'Shopping cart', shopping_cart_path%>
       <% if current_user.has_shopping_cart? %>
         <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('.see_shopping_cart')%></a>
       <% end %>
