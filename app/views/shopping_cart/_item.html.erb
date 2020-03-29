@@ -10,7 +10,13 @@
         </div>
 
         <div class="col-2">
-          Quantity: <%= item.quantity %>
+          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity-1), method: :put do%>
+            <i class="fas fa-minus-square"></i>
+          <% end %>
+          <%= item.quantity %>
+          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity+1), method: :put do%>
+            <i class="fas fa-plus-square"></i>
+          <% end %>
         </div>
 
         <div class="col-2 text-right">
