@@ -1,0 +1,45 @@
+@keyframes textRainbow {
+  0%{ background-position: 0 0; }
+  50%{ background-position: 600% 0; }
+  100%{ background-position: 0 0; }
+}
+
+nav.navbar.navbar-fixed{
+  height: 76px;
+  background: #1FA2FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: #333 0 0px 9px 0;
+
+  .navbar-brand{
+    color: white;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, rgb(226, 226, 34), orange, red, orange, rgb(226, 226, 34), green, blue, indigo, violet);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 600%;
+    animation: textRainbow 60s linear 0s infinite;
+  }
+
+  .navbar-toolbox{
+    & > *{
+      margin: 0 5px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+
+    a{
+      color: #ffffff;
+      font-size: 35px;
+      text-decoration: none;
+      text-shadow: #888 0px 1px 2px;
+      transition: text-shadow .2s ease-out;
+      &:hover{
+        text-shadow: #333 0px 2px 4px;
+        // animation: textShadowPulse 1s ease-out 0s infinite;
+      }
+    }
+  }
+}

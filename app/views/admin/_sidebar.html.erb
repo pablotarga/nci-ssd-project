@@ -1,0 +1,47 @@
+<div class="custom-menu">
+  <button type="button" id="sidebarCollapse" class="btn btn-primary">
+    <i class="fa fa-bars"></i>
+    <span class="sr-only">Toggle Menu</span>
+  </button>
+</div>
+<div class="p-4 pt-5 d-flex flex-column flex-grow-1">
+  <h1><%= link_to "Admin", admin_root_path, class: "logo" %></h1>
+  <ul class="list-unstyled components mb-5">
+    <li>
+      <%= link_to admin_root_path do %>
+        <i class="fas fa-fw fa-chart-line mr-3"></i>
+        <%= t('.dashboard')%>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_people_path do %>
+        <i class="fas fa-fw fa-users mr-3"></i>
+        <%= Person.model_name.human(count:2) %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_root_path do %>
+        <i class="fas fa-fw fa-truck mr-3"></i>
+        <%= Order.model_name.human(count:2) %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_root_path do %>
+        <i class="fas fa-fw fa-boxes mr-3"></i>
+        <%= Product.model_name.human(count:2) %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to root_path do %>
+        <i class="fas fa-fw fa-store mr-3"></i>
+        <%= t('.go_to_store')%>
+      <% end %>
+    </li>
+  </ul>
+
+  <div class="footer mt-auto">
+    <p>
+      <%= render partial: 'admin/copyright'%>
+    </p>
+  </div>
+</div>

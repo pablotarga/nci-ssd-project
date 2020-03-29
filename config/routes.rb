@@ -15,5 +15,11 @@ Rails.application.routes.draw do
     get :welcome, on: :collection
   end
 
+  namespace :admin do
+    resources :people, only: [:index, :edit, :update]
+    root "dashboard#show"
+  end
+
+
   root "pages#landpage"
 end
