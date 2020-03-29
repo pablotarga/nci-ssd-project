@@ -1,0 +1,8 @@
+*{
+  box-sizing: border-box;
+}
+
+.container-fluid.min-vh-100{
+  min-height: calc(100vh - 76px) !important;
+  height: calc(100vh - 76px);
+}

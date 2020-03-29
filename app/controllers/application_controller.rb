@@ -48,4 +48,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.blank? || current_user.is_a?(Guest)
   end
 
+  def require_admin
+    redirect_to(root_path, alert: t('errors.must_be_admin')) unless current_user.present? && current_user.admin?
+  end
+
+
 end

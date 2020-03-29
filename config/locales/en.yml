@@ -15,7 +15,6 @@ en:
       welcome_back: Welcome back
       first_timer: I see this is the first time you access the system!
       current_ip: Your current IP is
-      see_shopping_cart: Access your Shopping Cart
   product:
     in_stock: In Stock
     out_stock: Out of Stock
@@ -27,16 +26,57 @@ en:
     back: Back
     logout: Logout
     login: Login
+    see_shopping_cart: Access your Shopping Cart
+    yes_no:
+      'true': Yes
+      'false': No
+    edit: Edit
+
+  admin:
+    sidebar:
+      dashboard: Dashboard
+      people: People
+      orders: Orders
+      products: Products
+      go_to_store: Back to Store
+    people:
+      form:
+        save: Save
+    copyright:
+      copyright: Copyright
+      all_rights_reserved: All rights reserved
+      this_is_made:  This is made with
+      by: by
 
   errors:
     invalid_credentials: Invalid Credentials
+    must_be_admin: Restricted Content! You must be an admin to access.
+    not_found: Record not found.
 
   notices:
     logout: Logged out with success!
+    saved_with_success: Saved with success!
 
   mongoid:
+    models:
+      person:
+        one: Person
+        other: People
+      order:
+        one: Order
+        other: Orders
+      product:
+        one: Product
+        other: Products
     attributes:
       person:
         name: Name
         email: Email
         password: Password
+        last_auth_at: Last login at
+        last_auth_ip: Last login IP
+        locale: Locale
+
+  time:
+    formats:
+      normal: '%d/%m/%y %H:%M'

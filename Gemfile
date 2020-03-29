@@ -7,6 +7,9 @@ gem 'mongoid', '~> 7.0.5'
 gem 'mongoid_search'
 gem 'kaminari-mongoid'
 
+# Gem for the mailer system
+gem "letter_opener", :group => :development
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use Puma as the app server

@@ -2,8 +2,11 @@
 @import "fontawesome";
 @import "solid";
 
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
 body{
-  color: #222c34
+  color: #222c34;
+  font-family: 'Lato', sans-serif;
 }
 
 .login-card{

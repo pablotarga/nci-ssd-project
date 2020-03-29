@@ -8,10 +8,20 @@ Rails.application.routes.draw do
   post  '/register' => "register#create", as: 'register'
 
   resource :shopping_cart, only: [:show], controller: 'shopping_cart'
+  get   '/about'  => "pages#about",  as: 'about'
+
+  get  '/contact', to: 'contact#new'
+  post '/contact', to: 'contact#create'
 
   resource :profile, only: [] do
     get :welcome, on: :collection
   end
+
+  namespace :admin do
+    resources :people, only: [:index, :edit, :update]
+    root "dashboard#show"
+  end
+
 
   root "pages#landpage"
 end

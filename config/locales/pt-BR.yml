@@ -15,30 +15,60 @@ pt-BR:
       welcome_back: Bem vindo de volta
       first_timer: Esta é a primeira vez que você acessa o sistema
       current_ip: Seu IP atual é
-      see_shopping_cart: Acesse seu Carrinho
   product:
     in_stock: Em Estoque
     out_stock: Fora de Estoque
   shared:
     add_to_cart: Adicionar
-    last_auth_at: Último Acesso em
-    last_auth_ip: IP do Último Acesso
     browse_products: Ver Produtos
     back: Voltar
     logout: Sair
     login: Entrar
+    see_shopping_cart: Acesse seu Carrinho
+    yes_no:
+      'true': Sim
+      'false': Não
+    edit: Editando
+
+  admin:
+    sidebar:
+      dashboard: Resumo
+      go_to_store: Voltar para a loja
+    people:
+      form:
+        save: Salvar
+    copyright:
+      copyright: Copyright
+      all_rights_reserved: Todos os direitos reservados
+      this_is_made:  Este template foi feito com
+      by: por
 
   errors:
     invalid_credentials: Email/Senha Inválidos
+    must_be_admin: Conteúdo restrito! Você deve ser um administrador para acessar.
+    not_found: Registro não encontrado
 
   notices:
     logout: Deslogou com sucesso!
-
+    saved_with_success: Salvo com sucesso!
 
 
   mongoid:
+    models:
+      person:
+        one: Pessoa
+        other: Pessoas
+      order:
+        one: Ordem
+        other: Ordens
+      product:
+        one: Produto
+        other: Produtos
     attributes:
       person:
         name: Nome
         email: Email
         password: Senha
+        last_auth_at: Último Acesso em
+        last_auth_ip: IP do Último Acesso
+        locale: Idioma

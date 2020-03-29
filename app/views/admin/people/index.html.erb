@@ -1,0 +1,26 @@
+<h1><%= Person.model_name.human(count: 2) %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= Person.human_attribute_name(:name) %></th>
+        <th scope="col"><%= Person.human_attribute_name(:email) %></th>
+        <th scope="col"><%= Person.human_attribute_name(:locale) %></th>
+        <th scope="col"><%= Person.human_attribute_name(:admin) %>?</th>
+        <th scope="col"><%= Person.human_attribute_name(:last_auth_at) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |person| %>
+      <tr>
+        <th scope="row"><%= link_to person.name, edit_admin_person_path(person) %></th>
+        <td><%= person.email %></td>
+        <td><%= person.locale %></td>
+        <td><%= t(person.admin?, scope: 'shared.yes_no') %></td>
+        <td><%= l(person.current_auth_at, format: :normal) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

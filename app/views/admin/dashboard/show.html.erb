@@ -1,0 +1,45 @@
+<h1>dashboard#show</h1>
+
+<div class="dashboard">
+  <div class="row">
+    <div class="col-12 col-sm-4 col-md-4 my-3">
+      <div class="card bg-success text-white h-100">
+        <div class="card-body bg-success">
+          <div class="rotate">
+            <i class="fa fa-user fa-4x"></i>
+          </div>
+          <h6 class="text-uppercase"><%= Person.model_name.human(count:2) %></h6>
+          <h1 class="display-4 text-white"><%= @counters[:people]%></h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-4 my-3">
+      <div class="card bg-danger text-white h-100">
+        <div class="card-body bg-danger">
+          <div class="rotate">
+            <i class="fa fa-truck fa-4x"></i>
+          </div>
+          <h6 class="text-uppercase"><%= Order.model_name.human(count:2) %></h6>
+          <h1 class="display-4 text-white"><%= @counters[:orders] %></h1>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-sm-4 my-3">
+      <div class="card bg-info text-white h-100">
+        <div class="card-body bg-info">
+          <div class="rotate">
+            <i class="fa fa-boxes fa-4x"></i>
+          </div>
+          <h6 class="text-uppercase"><%= Product.model_name.human(count:2) %></h6>
+          <h1 class="display-4 text-white"><%= @counters[:products] %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
