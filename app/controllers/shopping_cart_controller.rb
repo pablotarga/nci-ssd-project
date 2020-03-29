@@ -15,6 +15,11 @@ class ShoppingCartController < ApplicationController
     end
   end
 
+  def destroy
+    process = service.remove_item(params[:product_id])
+    redirect_to shopping_cart_path, notice: "Item removed!"
+  end
+
   private
 
   def service
