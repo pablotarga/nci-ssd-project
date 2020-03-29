@@ -16,7 +16,12 @@
 
   <div class="form-group">
     <%= f.label :locale %>
-    <%= f.text_field :locale, class: 'form-control' %>
+    <% I18n.available_locales.each do |locale| %>
+      <div class="form-check">
+        <%= f.radio_button :locale, locale %>
+        <%= f.label :locale, locale, value: locale %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-group">
