@@ -15,7 +15,7 @@
   <% end %>
     <p class="lead">
       <% if current_user.has_shopping_cart? %>
-        <a class="btn btn-primary btn-lg" href="#" role="button"><%= t('shared.see_shopping_cart')%></a>
+        <%= link_to t('shared.see_shopping_cart'), shopping_cart_path, class: 'btn btn-primary btn-lg' %>
       <% end %>
       <%= link_to t("shared.browse_products"), root_path, class: 'btn btn-link' %>
     </p>

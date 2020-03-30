@@ -9,6 +9,7 @@ class ShoppingCartService < ApplicationService
   end
 
   def add_item(product_or_id, quantity, increment: false)
+    quantity = quantity.to_i
     # if incrementing and quantity is zero, no actions to be made
     # if setting to zero (not incrementing) then we should call remove_item
     return (increment ? success!(:no_changes) : remove_item(product_or_id)) if quantity == 0
