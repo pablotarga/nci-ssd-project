@@ -56,7 +56,7 @@ class ServiceStatus
     if o.is_a? Symbol
       @statuses.push o.to_s.inquiry
     elsif o.class.included_modules.include?(Mongoid::Document) && o.errors.present?
-      @errors = o.errors.full_messages
+      @errors += o.errors.full_messages
     elsif o.is_a?(Hash)
       h = o.symbolize_keys
       err = h.delete :errors
