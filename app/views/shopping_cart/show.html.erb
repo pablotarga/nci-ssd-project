@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <%= render partial: 'shared/alerts'%>
+  <h1>Shopping cart</h1>
+
+  <div class="shopping_cart_items row">
+    <%= render partial:'item', collection: @cart.order_items %>
+  </div>
+</div>

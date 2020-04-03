@@ -21,7 +21,7 @@ class Admin::PeopleController < AdminController
   private
 
   def update_params
-    _params = extract_params :person, permit: [:name, :email, :password, :locale, :admin]
+    _params = extract_params :person, permit: [:title, :name, :email, :password, :locale, :admin]
     _params.delete :password unless _params[:password].present?
     _params
   end

@@ -2,7 +2,7 @@
   <%= link_to "NCI GameStore", root_path, class: "navbar-brand" %>
 
   <div class="navbar-toolbox">
-    <%= navbar_link("fas fa-shopping-basket", t('shared.see_shopping_cart'), "#shopping_cart") if current_user.try(:has_shopping_cart?) %>
+    <%= navbar_link("fas fa-shopping-basket", t('shared.see_shopping_cart'), shopping_cart_path) if current_user.try(:has_shopping_cart?) %>
 
     <% if current_user.is_a?(Guest) %>
       <%= navbar_link("fas fa-user-secret", t('shared.abandon'), logout_path) %>

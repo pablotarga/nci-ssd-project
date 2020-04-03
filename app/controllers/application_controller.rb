@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(id: cookies[:user_id]) if cookies[:user_id].present?
+    @current_user ||= User.where(id: cookies[:user_id]).first if cookies[:user_id].present?
   end
   helper_method :current_user
 
