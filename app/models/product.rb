@@ -1,6 +1,7 @@
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Search
   include Fetchable
 
   field :title, type: String
@@ -12,8 +13,10 @@ class Product
   field :tags, type: Array, default: []
 
   scope :search, ->(q){
-    scoped
+    full_text_search(q, match: :any)
   }
+
+  search_in :title, :description, :tags
 
   # required is the amount you need so if there is only 4 items in stock
   # product.in_stock? => true
