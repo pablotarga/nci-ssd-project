@@ -3,7 +3,12 @@ class PagesController < ApplicationController
 
   def landpage
     @title = "Hello World!"
-    @products = Product.search(search_params).page(1)
+    @products = Product.page(params[:page].presence || 1).per(20).search(search_params)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def about
@@ -21,7 +26,7 @@ class PagesController < ApplicationController
   private
 
   def search_params
-    {}
+    params[:q]
   end
 
 end

@@ -25,9 +25,9 @@
       </p>
 
       <div class="tags">
-        <span class="badge badge-info">PS4</span>
-        <span class="badge badge-info">Action</span>
-        <span class="badge badge-info">Single Player</span>
+        <% product.tags.each do |tag|%>
+        <span class="badge badge-info"><%= tag %></span>
+        <% end %>
       </div>
 
       <div class="buy d-flex justify-content-between align-items-center mt-auto">
