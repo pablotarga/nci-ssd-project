@@ -5,4 +5,11 @@
   <div class="shopping_cart_items row">
     <%= render partial:'item', collection: @cart.order_items %>
   </div>
+
+<div>
+<% if @cart.can_checkout? %>
+<%= link_to 'Checkout', checkout_shopping_cart_path, method: :put, class: 'btn btn-success' %>
+<% end %>
+</div>
+
 </div>

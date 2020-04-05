@@ -20,6 +20,15 @@ class ShoppingCartController < ApplicationController
     redirect_to shopping_cart_path, notice: "Item removed!"
   end
 
+  def checkout
+    process = service.checkout
+    if process.success?
+      redirect_to root_path, notice: "Checkout complete"
+    else
+      redirect_to({action: :show}, alert: process.errors)
+    end
+  end
+
   private
 
   def service

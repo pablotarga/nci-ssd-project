@@ -45,6 +45,20 @@ class ShoppingCartService < ApplicationService
     success!
   end
 
+  def checkout
+    return fail!(errors: 'Unable to checkout') unless cart.can_checkout?
+    check = checkstock
+    return check unless check.success?
+    total = 0
+    cart.order_items.each do |item|
+      item.product.update_attribute(:quantity, item.product.quantity - item.quantity)
+      item.update_attribute(:total, item.product.price * item.quantity)
+      total += item.total
+    end
+    cart.update_attributes(status: :waiting_payment, total: total)
+    success!
+  end
+
   def copy(*order_ids)
     order_ids = [order_ids].flatten.map(&:to_s)
 
@@ -54,4 +68,12 @@ class ShoppingCartService < ApplicationService
 
     success!
   end
+
+  def checkstock
+    cart.order_items.each do |item|
+      return fail!(errors: "#{item.product.title} is out of stock", item: item) if item.quantity > item.product.quantity
+    end
+    success!
+  end
+
 end

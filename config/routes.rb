@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post  '/register' => "register#create", as: 'register'
 
   resource :shopping_cart, only: [:show], controller: 'shopping_cart' do
+    put :checkout
     put '/:product_id', action: :update, as: 'update'
     delete '/:product_id', action: :destroy, as: 'destroy'
   end

@@ -18,4 +18,8 @@ class Order
     field :total, type: Numeric, default: 0
     field :dispatch_at, type: DateTime
 
+    def can_checkout?
+        order_items.exists? && pending?
+    end
+
 end
