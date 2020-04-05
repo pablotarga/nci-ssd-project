@@ -35,6 +35,7 @@ en:
       'true': Yes
       'false': No
     edit: Edit
+    search: Search
 
   admin:
     sidebar:
