@@ -19,7 +19,6 @@ class Person < User
   has_secure_password
 
   validates :email, uniqueness: true, presence: true, allow_blank: false
-  validates :name, length: {minimum: 10}
 
   def self.by_reset_token token
     where(:reset_token_expire_at.gt => Time.now, reset_token: token).actives.first
