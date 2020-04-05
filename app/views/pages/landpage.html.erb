@@ -1,5 +1,13 @@
-<%= render partial: 'shared/alerts'%>
+<div class="container-fluid mt-3">
+  <%= render partial: 'shared/alerts'%>
 
-<section class="products">
-  <%= render partial: 'product', collection: @products %>
-</section>
+  <section class="search">
+    <%= form_tag(root_path, method: :get) do %>
+    <%= text_field_tag :q, params[:q], placeholder: t('shared.search'), class: 'form-control' %>
+    <% end %>
+  </section>
+
+  <section class="products">
+    <%= render partial: 'product', collection: @products %>
+  </section>
+</div>

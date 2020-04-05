@@ -12,9 +12,11 @@ class Product
   field :highlighted, type: Boolean
   field :tags, type: Array, default: []
 
-  scope :search, ->(q){
+  def self.search(q)
+    return all unless q.present?
+
     full_text_search(q, match: :any)
-  }
+  end
 
   search_in :title, :description, :tags
 
