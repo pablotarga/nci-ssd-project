@@ -8,7 +8,7 @@
       <%= navbar_link("fas fa-user-secret", t('shared.abandon'), logout_path) %>
       <%= navbar_link("fas fa-key", t('shared.login'), new_login_path) %>
     <% elsif current_user.is_a?(Person) %>
-      <%= navbar_link("fas fa-user", t('navbar.profile'), welcome_profile_path) %>
+      <%= navbar_link("fas fa-user", t('navbar.profile'), profile_path) %>
       <%= navbar_link("fas fa-lock", t('navbar.admin'), admin_root_path) if current_user.admin? %>
       <%= navbar_link("fas fa-power-off", t('shared.logout'), logout_path) %>
     <% else %>
