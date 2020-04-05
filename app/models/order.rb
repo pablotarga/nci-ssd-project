@@ -5,7 +5,7 @@ class Order
 
     belongs_to :user, inverse_of: :orders
     has_many :order_items
-    #has_many :payments
+    has_many :payments, inverse_of: :order
 
     enum :status, [:pending, :waiting_payment, :accepted, :dispatched, :closed, :denied, :waiting_refund, :refunded]
 
