@@ -4,5 +4,5 @@ class User
 
   field :locale, type: String, default: 'en'
 
-  has_many :orders, inverse_of: :user
+  has_many :orders, inverse_of: :user, dependent: :destroy
 end

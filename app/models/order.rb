@@ -4,8 +4,8 @@ class Order
     include Mongoid::Enum
 
     belongs_to :user, inverse_of: :orders
-    has_many :order_items
-    has_many :payments, inverse_of: :order
+    has_many :order_items, dependent: :destroy
+    has_many :payments, inverse_of: :order, dependent: :destroy
 
     enum :status, [:pending, :waiting_payment, :accepted, :dispatched, :closed, :denied, :waiting_refund, :refunded]
 

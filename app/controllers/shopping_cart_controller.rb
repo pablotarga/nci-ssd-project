@@ -1,5 +1,6 @@
 class ShoppingCartController < ApplicationController
 
+  before_action :create_guest, only: :update
   before_action :require_any_user
 
   def show
@@ -37,6 +38,11 @@ class ShoppingCartController < ApplicationController
 
   def update_params
     extract_params :product, permit: [:quantity, :increment]
+  end
+
+  def create_guest
+    return if current_user.present?
+    swap_cookie(Guest.create)
   end
 
 end
