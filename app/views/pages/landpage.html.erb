@@ -2,12 +2,12 @@
   <%= render partial: 'shared/alerts'%>
 
   <section class="search">
-    <%= form_tag(root_path, method: :get) do %>
+    <%= form_tag(root_path, method: :get, remote: true) do %>
     <%= text_field_tag :q, params[:q], placeholder: t('shared.search'), class: 'form-control' %>
     <% end %>
   </section>
 
-  <section class="products">
+  <section id="product_list" class="products">
     <%= render partial: 'product', collection: @products %>
   </section>
 </div>
