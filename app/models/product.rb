@@ -9,6 +9,7 @@ class Product
   field :cost, type: Numeric, default: 0
   field :description, type: String
   field :highlighted, type: Boolean
+  field :tags, type: Array, default: []
 
   scope :search, ->(q){
     scoped
