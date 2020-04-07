@@ -6,9 +6,9 @@
     <%= render partial:'item', collection: @cart.order_items %>
   </div>
 
-<div>
+<div class="text-center">
 <% if @cart.can_checkout? %>
-<%= link_to 'Checkout', checkout_shopping_cart_path, method: :put, class: 'btn btn-success' %>
+<%= link_to 'Checkout', checkout_shopping_cart_path, method: :put, class: 'btn btn-success btn-lg' %>
 <% end %>
 </div>
 

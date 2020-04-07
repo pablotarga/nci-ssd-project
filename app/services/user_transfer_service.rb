@@ -19,7 +19,7 @@ class UserTransferService < ApplicationService
     # return success if origin dont have any orders
     return success! unless origin.orders.pending.exists?
 
-    if target.order.pending.exists?
+    if target.orders.pending.exists?
       ShoppingCartService.new(target).copy(origin.orders.pending.pluck(:id))
       return success!(copied: true)
     else

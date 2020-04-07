@@ -46,6 +46,7 @@ class ShoppingCartService < ApplicationService
   end
 
   def checkout
+    return fail!(errors: 'Must be logged in to checkout') unless user.is_a?(Person)
     return fail!(errors: 'Unable to checkout') unless cart.can_checkout?
     check = checkstock
     return check unless check.success?
