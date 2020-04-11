@@ -1,0 +1,28 @@
+<h1><%= Product.model_name.human(count: 2) %></h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= Product.human_attribute_name(:title) %></th>
+        <th scope="col"><%= Product.human_attribute_name(:description) %></th>
+        <th scope="col"><%= Product.human_attribute_name(:tags) %></th>
+        <th scope="col"><%= Product.human_attribute_name(:quantity) %></th>
+        <th scope="col"><%= Product.human_attribute_name(:price_per_unit) %></th>
+        <th scope="col"><%= Product.human_attribute_name(:cost) %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @product.each do |product| %>
+    <tr>
+      <th scope="row"><%= link_to product.title %></th>
+      <td><%= product.description %></td>
+      <td><%= product.tags.join(", ") %></td>
+      <td><%= product.quantity %></td>
+      <td><%= number_to_currency(product.price, unit: "€") %></td>
+      <td><%= number_to_currency(product.cost, unit: "€") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>
