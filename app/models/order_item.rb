@@ -6,5 +6,5 @@ class OrderItem
     belongs_to :product
 
     field :quantity, type: Integer, default: 0
-    field :total, type: Numeric
+    field :total, type: Float
 end
