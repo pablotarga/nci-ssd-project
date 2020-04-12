@@ -6,7 +6,7 @@ class Admin::DashboardController < AdminController
       users: User.count,
       people: Person.count,
       guests: Guest.count,
-      orders: 123
+      orders: Order.count
     }
   end
 end
