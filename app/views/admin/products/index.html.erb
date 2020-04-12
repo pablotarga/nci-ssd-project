@@ -13,9 +13,9 @@
       </tr>
     </thead>
     <tbody>
-    <% @product.each do |product| %>
+    <% @products.each do |product| %>
     <tr>
-      <th scope="row"><%= link_to product.title %></th>
+      <th scope="row"><%= link_to product.title, edit_admin_product_path(product) %></th>
       <td><%= product.description %></td>
       <td><%= product.tags.join(", ") %></td>
       <td><%= product.quantity %></td>

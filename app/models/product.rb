@@ -27,4 +27,14 @@ class Product
   def in_stock?(required=nil)
     required ? quantity >= required : quantity > 0
   end
+
+  def tag_list
+    tags.join(", ")
+  end
+
+  def tag_list=(v)
+    self.tags = v.split(",").map(&:strip)
+  end
+
+
 end

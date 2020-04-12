@@ -35,6 +35,7 @@ en:
       'true': Yes
       'false': No
     edit: Edit
+    save: Save
     search: Search
 
   admin:
@@ -44,9 +45,6 @@ en:
       orders: Orders
       products: Products
       go_to_store: Back to Store
-    people:
-      form:
-        save: Save
     copyright:
       copyright: Copyright
       all_rights_reserved: All rights reserved
