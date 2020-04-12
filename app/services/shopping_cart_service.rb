@@ -45,17 +45,21 @@ class ShoppingCartService < ApplicationService
     success!
   end
 
-  def checkout(stripe_token:nil)
+  def checkout(params)
     return fail!(errors: 'Must be logged in to checkout') unless user.is_a?(Person)
     return fail!(errors: 'Unable to checkout') unless cart.can_checkout?
     check = checkstock
     return check unless check.success?
 
-    if stripe_token.present?
-      payment = pay(stripe_token, total: cart.calculate_total)
-      return payment unless payment.success?
-      cart.update_attributes(status: :accepted, total: payment.get(:total))
-    end
+    # return fail!(errors: 'Address required') unless address_pass(params).success?
+
+    stripe_token = params.delete :stripe_token
+    return fail!(errors: 'Stripe Token is required') unless stripe_token.present?
+
+    payment = pay(stripe_token, total: cart.calculate_total)
+    return payment unless payment.success?
+
+    cart.update_attributes(status: :accepted, total: payment.get(:total), **params)
 
     cart.order_items.each do |item|
       item.product.update_attribute(:quantity, item.product.quantity - item.quantity)
