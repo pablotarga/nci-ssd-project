@@ -13,9 +13,9 @@ class Order
     field :delivery_administrative, type: String
     field :delivery_city, type: String
     field :delivery_address, type: String
-    field :delivery_fee, type: Numeric, default: 0
+    field :delivery_fee, type: Float, default: 0
     field :delivery_eta_date, type: DateTime
-    field :total, type: Numeric, default: 0
+    field :total, type: Float, default: 0
     field :dispatch_at, type: DateTime
 
     def can_checkout?

@@ -7,7 +7,7 @@ class Payment
 
   enum :status, [:pending, :complete, :refunding, :canceled, :failed]
 
-  field :total, type: Numeric, default: 0
+  field :total, type: Float, default: 0
   field :provider, type: String
   field :provider_id, type: String
 
