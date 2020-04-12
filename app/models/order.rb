@@ -22,4 +22,8 @@ class Order
         order_items.exists? && pending?
     end
 
+    def calculate_total
+        order_items.inject(0){|sum,e| sum += e.quantity * e.product.price}
+    end
+
 end

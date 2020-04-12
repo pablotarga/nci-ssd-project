@@ -9,6 +9,6 @@ COPY Gemfile* ./
 
 RUN bundle install
 
-RUN apt-get update && apt-get install nano -y
+# RUN apt-get update && apt-get install nano -y
 
 CMD ["/bin/bash"]

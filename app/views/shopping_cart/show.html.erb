@@ -4,12 +4,17 @@
 
   <div class="shopping_cart_items row">
     <%= render partial:'item', collection: @cart.order_items %>
+
+    <div class="col-12 d-flex justify-content-end">
+      <%= number_to_currency @cart.calculate_total %>
+    </div>
   </div>
 
-<div class="text-center">
-<% if @cart.can_checkout? %>
-<%= link_to 'Checkout', checkout_shopping_cart_path, method: :put, class: 'btn btn-success btn-lg' %>
-<% end %>
-</div>
+
+  <div class="text-center">
+    <% if @cart.can_checkout? %>
+    <%= link_to 'Checkout', pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' %>
+    <% end %>
+  </div>
 
 </div>
