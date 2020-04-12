@@ -45,18 +45,23 @@ class ShoppingCartService < ApplicationService
     success!
   end
 
-  def checkout
+  def checkout(stripe_token:nil)
     return fail!(errors: 'Must be logged in to checkout') unless user.is_a?(Person)
     return fail!(errors: 'Unable to checkout') unless cart.can_checkout?
     check = checkstock
     return check unless check.success?
-    total = 0
+
+    if stripe_token.present?
+      payment = pay(stripe_token, total: cart.calculate_total)
+      return payment unless payment.success?
+      cart.update_attributes(status: :accepted, total: payment.get(:total))
+    end
+
     cart.order_items.each do |item|
       item.product.update_attribute(:quantity, item.product.quantity - item.quantity)
       item.update_attribute(:total, item.product.price * item.quantity)
-      total += item.total
     end
-    cart.update_attributes(status: :waiting_payment, total: total)
+
     success!
   end
 
@@ -74,6 +79,37 @@ class ShoppingCartService < ApplicationService
     cart.order_items.each do |item|
       return fail!(errors: "#{item.product.title} is out of stock", item: item) if item.quantity > item.product.quantity
     end
+    success!
+  end
+
+  def pay(token, total: nil)
+    total ||= cart.total
+    Stripe.api_key = Rails.application.credentials.stripe[:secret_key]
+
+    begin
+      charge = Stripe::Charge.create({
+        amount: (total*100).to_i,
+        currency: 'eur',
+        source: token,
+        description: 'Order number #'+cart.id,
+      })
+      success!(charge: charge, total: total)
+    rescue Stripe::CardError => e
+      fail!(errors: e.error.message)
+    end
+
+
+  end
+
+
+  def revert_checkout!
+    cart.order_items.each do |item|
+      item.product.update_attribute(:quantity, item.product.quantity + item.quantity)
+      item.update_attribute(:total, nil)
+    end
+
+    cart.update_attributes(status: :pending, total: nil)
+
     success!
   end
 
