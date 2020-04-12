@@ -6,8 +6,8 @@ class Product
 
   field :title, type: String
   field :quantity, type: Integer, default: 0
-  field :price, type: Numeric, default: 0
-  field :cost, type: Numeric, default: 0
+  field :price, type: Float, default: 0
+  field :cost, type: Float, default: 0
   field :description, type: String
   field :highlighted, type: Boolean
   field :tags, type: Array, default: []
@@ -27,4 +27,14 @@ class Product
   def in_stock?(required=nil)
     required ? quantity >= required : quantity > 0
   end
+
+  def tag_list
+    tags.join(", ")
+  end
+
+  def tag_list=(v)
+    self.tags = v.split(",").map(&:strip)
+  end
+
+
 end

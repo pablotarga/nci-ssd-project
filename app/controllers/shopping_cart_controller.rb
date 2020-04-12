@@ -2,6 +2,7 @@ class ShoppingCartController < ApplicationController
 
   before_action :create_guest, only: :update
   before_action :require_any_user
+  before_action :ensure_cart_can_be_checked_out, only: [:pre_checkout, :checkout]
 
   def show
     @cart = service.cart
@@ -21,12 +22,16 @@ class ShoppingCartController < ApplicationController
     redirect_to shopping_cart_path, notice: "Item removed!"
   end
 
+  def pre_checkout
+    @cart = service.cart
+  end
+
   def checkout
-    process = service.checkout
+    process = service.checkout(stripe_token: params[:stripe_token])
     if process.success?
       redirect_to root_path, notice: "Checkout complete"
     else
-      redirect_to({action: :show}, alert: process.errors)
+      redirect_to({action: :pre_checkout}, alert: process.errors)
     end
   end
 
@@ -43,6 +48,10 @@ class ShoppingCartController < ApplicationController
   def create_guest
     return if current_user.present?
     swap_cookie(Guest.create)
+  end
+
+  def ensure_cart_can_be_checked_out
+    redirect_to(shopping_cart_path, alert: t('errors.cannot_checkout')) unless service.cart.can_checkout?
   end
 
 end

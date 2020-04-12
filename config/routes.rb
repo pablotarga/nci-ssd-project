@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post  '/register' => "register#create", as: 'register'
 
   resource :shopping_cart, only: [:show], controller: 'shopping_cart' do
+    get :pre_checkout
     put :checkout
     put '/:product_id', action: :update, as: 'update'
     delete '/:product_id', action: :destroy, as: 'destroy'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :people, only: [:index, :edit, :update]
-    resources :products, only: [:index]
+    resources :products, only: [:index, :edit, :update]
     resources :orders, only: [:index]
     root "dashboard#show"
   end
