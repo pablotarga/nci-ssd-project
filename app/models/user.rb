@@ -9,4 +9,9 @@ class User
   def has_shopping_cart?
     orders.pending.exists?
   end
+
+  def has_previous_orders?
+    orders.accepted.exists?
+  end
+
 end

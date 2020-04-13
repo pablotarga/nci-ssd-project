@@ -17,6 +17,10 @@ class ProfilesController < ApplicationController
     render 'show'
   end
 
+  def previous_orders
+    @accepted_orders = current_user.orders.accepted
+  end
+
   private
 
   def update_params
