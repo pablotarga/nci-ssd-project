@@ -15,7 +15,14 @@
 
 <body>
   <%= render partial: 'shared/navbar'%>
-  <%= yield %>
+
+  <div class="container min-vh-100 p-0">
+    <div class="row collapse show no-gutters d-flex h-100 position-relative">
+      <div class="col-12 pt-4">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

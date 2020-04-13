@@ -1,22 +1,22 @@
-<h1> <%= @title %> </h1><br>
-<dt> Have a question? Feedback? Let us know and we'll get back to you! </dt><br>
+<h2> <%= t('.title') %> </h2><br>
+<dt> <%= t('.description')%> </dt><br>
 
 <div class="container-content">
     <div class="container">
         <%= form_tag(contact_path) do %>
             <div class="form-group">
-                <%= label_tag 'contact[name]', 'Name' %>
-                <%= text_field_tag 'contact[name]', nil, class: 'form-control', placeholder: 'Your Name' %>
+                <%= label_tag 'contact[name]', t('.name') %>
+                <%= text_field_tag 'contact[name]', nil, class: 'form-control', placeholder: t('.placeholder', title: t('.name')) %>
             </div>
            <div class="form-group">
-               <%= label_tag 'contact[email]', 'Email' %>
-               <%= email_field_tag 'contact[email]', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+               <%= label_tag 'contact[email]', t('.email') %>
+               <%= email_field_tag 'contact[email]', nil, class: 'form-control', placeholder: t('.placeholder', title: t('.email')) %>
            </div>
            <div class="form-group">
-               <%= label_tag 'contact[message]', 'Message' %>
-               <%= text_area_tag 'contact[message]', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
+               <%= label_tag 'contact[message]', t('.message') %>
+               <%= text_area_tag 'contact[message]', nil, class: 'form-control', rows: 4, placeholder: t('.placeholder', title: t('.message')) %>
            </div>
-           <%= submit_tag nil, class: 'btn btn-default btn-about pull-right' %>
+           <%= submit_tag t('shared.submit'), class: 'btn btn-success pull-right' %>
        <% end %>
   </div>
 </div>

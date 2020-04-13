@@ -39,8 +39,4 @@ class Person < User
   def has_last_auth_info?
     last_auth_at.present?
   end
-
-  def has_shopping_cart?
-    orders.pending.exists?
-  end
 end

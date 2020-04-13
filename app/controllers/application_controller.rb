@@ -52,5 +52,12 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path, alert: t('errors.must_be_admin')) unless current_user.present? && current_user.admin?
   end
 
+  def get_path_after_login
+    return welcome_profile_path unless cookies[:redirect_to].present?
+
+    path = cookies[:redirect_to]
+    cookies.delete :redirect_to
+    path
+  end
 
 end

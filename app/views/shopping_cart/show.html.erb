@@ -1,19 +1,22 @@
 <div class="container-fluid">
   <%= render partial: 'shared/alerts'%>
-  <h1>Shopping cart</h1>
+  <h2><%= t('.title') %></h2>
 
   <div class="shopping_cart_items row">
     <%= render partial:'item', collection: @cart.order_items %>
 
-    <div class="col-12 d-flex justify-content-end">
+    <div class="col-12 d-flex justify-content-end" id="shopping-cart-total">
       <%= number_to_currency @cart.calculate_total %>
     </div>
   </div>
 
 
   <div class="text-center">
-    <% if @cart.can_checkout? %>
-    <%= link_to 'Checkout', pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' %>
+
+    <% if current_user.is_a?(Person)%>
+    <%= link_to t('.checkout'), pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
+    <% else %>
+    <%= link_to t('.must_login'), login_path(redirect_to: shopping_cart_url), class: 'btn btn-success btn-lg' %>
     <% end %>
   </div>
 

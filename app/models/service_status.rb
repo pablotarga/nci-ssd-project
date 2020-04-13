@@ -56,13 +56,19 @@ class ServiceStatus
     if o.is_a? Symbol
       @statuses.push o.to_s.inquiry
     elsif o.class.included_modules.include?(Mongoid::Document) && o.errors.present?
-      @errors += o.errors.full_messages
+      self.errors = o.errors.full_messages
     elsif o.is_a?(Hash)
       h = o.symbolize_keys
       err = h.delete :errors
-      @errors += [err].flatten if err.present?
+      self.errors = err if err.present?
       @params.merge!(h)
     end
 
   end
+
+  def errors=(*err)
+    err = [err].flatten
+    @errors += err.map{|e| I18n.exists?(['errors', e]) ? I18n.t("errors.#{e}") : e}
+  end
+
 end
