@@ -1,6 +1,4 @@
 class ContactController < ApplicationController
-  layout 'profile'
-
   def create
     name = contact_params[:name]
     email = contact_params[:email]
@@ -10,7 +8,6 @@ class ContactController < ApplicationController
   end
 
   def new
-    @title = 'About NCI GameStore'
   end
 
   private

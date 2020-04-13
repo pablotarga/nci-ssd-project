@@ -22,6 +22,10 @@ en:
   product:
     in_stock: In Stock
     out_stock: Out of Stock
+  contact:
+    new:
+      title: Contact Us
+      description: Have a question? Feedback? Let us know and we'll get back to you!
   shared:
     add_to_cart: Add to Cart
     last_auth_at: Last login at
