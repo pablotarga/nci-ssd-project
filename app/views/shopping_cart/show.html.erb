@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <%= render partial: 'shared/alerts'%>
-  <h2>Shopping cart</h2>
+  <h2><%= t('.title') %></h2>
 
   <div class="shopping_cart_items row">
     <%= render partial:'item', collection: @cart.order_items %>
@@ -14,9 +14,9 @@
   <div class="text-center">
 
     <% if current_user.is_a?(Person)%>
-    <%= link_to 'Checkout', pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
+    <%= link_to t('.checkout'), pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
     <% else %>
-    <%= link_to 'You must login/register to proceed', login_path(redirect_to: shopping_cart_url), class: 'btn btn-success btn-lg' %>
+    <%= link_to t('.must_login'), login_path(redirect_to: shopping_cart_url), class: 'btn btn-success btn-lg' %>
     <% end %>
   </div>
 

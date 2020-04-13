@@ -17,18 +17,18 @@ class ShoppingCartController < ApplicationController
       respond_to do |format|
         format.js
         format.html {
-          redirect_to shopping_cart_path, notice: "Item #{process.get(:product).try(:title)} updated!"
+          redirect_to shopping_cart_path, notice: t('notices.item_updated', title: process.get(:product).try(:title))
         }
       end
 
     else
-      redirect_to shopping_cart_path, alert: "Oops, something went wrong!"
+      redirect_to shopping_cart_path, alert: t('errors.oops')
     end
   end
 
   def destroy
     process = service.remove_item(params[:product_id])
-    redirect_to shopping_cart_path, notice: "Item removed!"
+    redirect_to shopping_cart_path, notice: t('errors.item_removed')
   end
 
   def pre_checkout
@@ -38,7 +38,7 @@ class ShoppingCartController < ApplicationController
   def checkout
     process = service.checkout(checkout_params)
     if process.success?
-      redirect_to root_path, notice: "Checkout complete"
+      redirect_to root_path, notice: t('notices.checkout_complete')
     else
       redirect_to({action: :pre_checkout}, alert: process.errors)
     end

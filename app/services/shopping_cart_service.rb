@@ -16,7 +16,7 @@ class ShoppingCartService < ApplicationService
 
     # fetch product from db to make sure it exists, return fail if not found
     product = Product.fetch(product_or_id)
-    return fail!(errors: 'Product not found') unless product.present?
+    return fail!(errors: :product_not_found) unless product.present?
 
     # get the order item for that product, if not included initialize a new OrderItem
     order_item = cart.order_items.where(product: product).first_or_initialize
@@ -46,15 +46,15 @@ class ShoppingCartService < ApplicationService
   end
 
   def checkout(params)
-    return fail!(errors: 'Must be logged in to checkout') unless user.is_a?(Person)
-    return fail!(errors: 'Unable to checkout') unless cart.can_checkout?
+    return fail!(errors: :must_be_person_to_checkout) unless user.is_a?(Person)
+    return fail!(errors: :cannot_checkout) unless cart.can_checkout?
     check = checkstock
     return check unless check.success?
 
     # return fail!(errors: 'Address required') unless address_pass(params).success?
 
     stripe_token = params.delete :stripe_token
-    return fail!(errors: 'Stripe Token is required') unless stripe_token.present?
+    return fail!(errors: :payment_token_required) unless stripe_token.present?
 
     payment = pay(stripe_token, total: cart.calculate_total)
     return payment unless payment.success?
@@ -81,7 +81,7 @@ class ShoppingCartService < ApplicationService
 
   def checkstock
     cart.order_items.each do |item|
-      return fail!(errors: "#{item.product.title} is out of stock", item: item) if item.quantity > item.product.quantity
+      return fail!(errors: I18n.t('errors.product_out_of_stock', title: item.product.title), item: item) if item.quantity > item.product.quantity
     end
     success!
   end

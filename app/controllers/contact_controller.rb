@@ -4,7 +4,7 @@ class ContactController < ApplicationController
     email = contact_params[:email]
     message = contact_params[:message]
     ContactMailer.contact_email(name, email, message).deliver
-    redirect_to contact_path, notice: 'Message sent'
+    redirect_to contact_path, notice: t('notices.message_sent')
   end
 
   def new

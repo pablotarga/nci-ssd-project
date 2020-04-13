@@ -13,7 +13,7 @@ class SessionController < ApplicationController
       swap_cookie(authentication)
       redirect_to get_path_after_login
     else
-      redirect_to new_login_path, alert: I18n.t('errors.invalid_credentials')
+      redirect_to new_login_path, alert: t('errors.invalid_credentials')
     end
   end
 
@@ -21,7 +21,7 @@ class SessionController < ApplicationController
     current_user.destroy if current_user.is_a?(Guest)
 
     cookies.delete :user_id
-    redirect_to root_path, notice: I18n.t('notices.logout')
+    redirect_to root_path, notice: t('notices.logout')
   end
 
   private
