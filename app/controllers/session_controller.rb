@@ -3,6 +3,7 @@ class SessionController < ApplicationController
   layout 'full'
 
   def new
+    cookies[:redirect_to] = URI.unescape(params[:redirect_to]) if params[:redirect_to].present?
     @person = Person.new
   end
 
@@ -10,7 +11,7 @@ class SessionController < ApplicationController
     authentication = auth.by_email_and_password(**login_params)
     if authentication.success?
       swap_cookie(authentication)
-      redirect_to welcome_profile_path
+      redirect_to get_path_after_login
     else
       redirect_to new_login_path, alert: I18n.t('errors.invalid_credentials')
     end

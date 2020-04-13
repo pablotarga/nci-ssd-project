@@ -10,7 +10,7 @@ class RegisterController < ApplicationController
     registration = RegistrationService.register(person_params)
     if registration.success?
       swap_cookie(registration.get(:user))
-      redirect_to welcome_profile_path
+      redirect_to get_path_after_login
     else
       redirect_to registration_path, alert: registration.errors
     end

@@ -12,8 +12,11 @@
 
 
   <div class="text-center">
-    <% if @cart.can_checkout? %>
-    <%= link_to 'Checkout', pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' %>
+
+    <% if current_user.is_a?(Person)%>
+    <%= link_to 'Checkout', pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
+    <% else %>
+    <%= link_to 'You must login/register to proceed', login_path(redirect_to: shopping_cart_url), class: 'btn btn-success btn-lg' %>
     <% end %>
   </div>
 
