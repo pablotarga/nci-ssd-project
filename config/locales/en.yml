@@ -84,7 +84,7 @@ en:
     oops: Oops, something went wrong!
     payment_token_required: Stripe Token is required
     product_not_found: Product not found
-    product_out_of_stock: %{title} is out of stock
+    product_out_of_stock: "%{title} is out of stock"
 
   notices:
     logout: Logged out with success!
