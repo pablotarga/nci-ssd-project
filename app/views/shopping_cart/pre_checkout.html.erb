@@ -1,19 +1,45 @@
-<%= render partial: 'shared/alerts'%>
+<div class="container">
+
+  <%= render partial: 'shared/alerts'%>
 
 
-<div class="w-50 mx-auto my-5">
-  <div id="card-element"></div>
-  <div id="card-errors"></div>
+  <div class="w-50 mx-auto my-5">
+    <div id="card-element"></div>
+    <div id="card-errors"></div>
+  </div>
+
+
+  <div class="col-12">
+    <%= form_with(model: @cart, url: checkout_shopping_cart_path, id: 'payment-form', method: :put) do |f|%>
+    <p>Amount due <%= number_to_currency @cart.calculate_total %></p>
+
+    <div class="form-group">
+      <%= f.label :delivery_country %>
+      <%= f.text_field :delivery_country, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :delivery_administrative %>
+      <%= f.text_field :delivery_administrative, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :delivery_city %>
+      <%= f.text_field :delivery_city, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :delivery_address %>
+      <%= f.text_field :delivery_address, class: 'form-control' %>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit 'Checkout', class: 'btn btn-success btn-lg' %>
+    </div>
+    <% end %>
+  </div>
+
 </div>
-
-<div class="text-center">
-<%= form_with(url: checkout_shopping_cart_path, id: 'payment-form', method: :put) do |f|%>
-  <p>Amount due <%= number_to_currency @cart.calculate_total %></p>
-
-  <%= f.submit 'Checkout', class: 'btn btn-success btn-lg' %>
-<% end %>
-</div>
-
 <script>
   var stripe = Stripe("<%= Rails.application.credentials.stripe[:public_key] %>");
   var elements = stripe.elements();
@@ -34,10 +60,10 @@
     }
   };
 
-  var card = elements.create('card', {style: style, hidePostalCode: true});
+  var card = elements.create('card', { style: style, hidePostalCode: true });
   card.mount('#card-element');
 
-  card.addEventListener('change', function(event) {
+  card.addEventListener('change', function (event) {
     var displayError = document.getElementById('card-errors');
     if (event.error) {
       displayError.textContent = event.error.message;
@@ -48,10 +74,10 @@
 
   var form = document.getElementById('payment-form');
 
-  form.addEventListener('ajax:before', function(event) {
+  form.addEventListener('ajax:before', function (event) {
     event.preventDefault();
 
-    stripe.createToken(card).then(function(result) {
+    stripe.createToken(card).then(function (result) {
       if (result.error) {
         // Inform the user if there was an error.
         var errorElement = document.getElementById('card-errors');
@@ -69,7 +95,7 @@
     var form = document.getElementById('payment-form');
     var hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', 'stripe_token');
+    hiddenInput.setAttribute('name', 'order[stripe_token]');
     hiddenInput.setAttribute('value', token.id);
     form.appendChild(hiddenInput);
 

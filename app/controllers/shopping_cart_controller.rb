@@ -27,7 +27,7 @@ class ShoppingCartController < ApplicationController
   end
 
   def checkout
-    process = service.checkout(stripe_token: params[:stripe_token])
+    process = service.checkout(checkout_params)
     if process.success?
       redirect_to root_path, notice: "Checkout complete"
     else
@@ -43,6 +43,16 @@ class ShoppingCartController < ApplicationController
 
   def update_params
     extract_params :product, permit: [:quantity, :increment]
+  end
+
+  def checkout_params
+    extract_params :order, permit: [
+      :delivery_country,
+      :delivery_administrative,
+      :delivery_city,
+      :delivery_address,
+      :stripe_token
+    ]
   end
 
   def create_guest
