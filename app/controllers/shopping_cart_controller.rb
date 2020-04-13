@@ -11,7 +11,16 @@ class ShoppingCartController < ApplicationController
   def update
     process = service.add_item(params[:product_id], update_params[:quantity], increment: update_params[:increment])
     if process.success?
-      redirect_to shopping_cart_path, notice: "Item #{process.get(:product).try(:title)} updated!"
+      @deleted = process.item_removed?
+      @cart = service.cart
+      @order_item = process.get(:order_item)
+      respond_to do |format|
+        format.js
+        format.html {
+          redirect_to shopping_cart_path, notice: "Item #{process.get(:product).try(:title)} updated!"
+        }
+      end
+
     else
       redirect_to shopping_cart_path, alert: "Oops, something went wrong!"
     end

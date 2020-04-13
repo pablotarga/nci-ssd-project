@@ -5,7 +5,7 @@
   <div class="shopping_cart_items row">
     <%= render partial:'item', collection: @cart.order_items %>
 
-    <div class="col-12 d-flex justify-content-end">
+    <div class="col-12 d-flex justify-content-end" id="shopping-cart-total">
       <%= number_to_currency @cart.calculate_total %>
     </div>
   </div>

@@ -23,14 +23,14 @@ class ShoppingCartService < ApplicationService
 
     # add current quantity if increment is true
     quantity += order_item.quantity.to_i if increment
-    return remove_item(product_or_id) if quantity <= 0
+    return remove_item(product_or_id, order_item: order_item) if quantity <= 0
 
     return fail!(order_item) unless order_item.update_attributes(quantity: quantity)
 
     success!(order_item: order_item, product: product)
   end
 
-  def remove_item(id)
+  def remove_item(id, order_item:nil)
     # no need to check if product exists, can be an clean up action after the product destruction
 
     # extract the id if product informed
@@ -42,7 +42,7 @@ class ShoppingCartService < ApplicationService
     # destroy if found
     order_item.destroy if order_item
 
-    success!
+    success!(:item_removed, order_item: order_item)
   end
 
   def checkout(params)
