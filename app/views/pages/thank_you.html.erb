@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="text-center mt-3">
+    <%= render partial: 'shared/alerts'%>
+
+    <h2> <%= t('thank_you.thank_you_message')%> </h2>
+    <p> <%= t('thank_you.order_received') %> </p>
+
+    <%= link_to t('thank_you.go_to_orders'), previous_orders_profile_path, class: 'btn btn-success btn-lg mt-3' %>
+    <%= link_to t('thank_you.back_to_store'), root_path, class: 'btn btn-success btn-lg mt-3' %>
+
+  </div>
+</div>
