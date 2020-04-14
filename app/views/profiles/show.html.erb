@@ -1,6 +1,13 @@
 <%= render partial: 'shared/alerts'%>
 
+<p>
+  <% if current_user.has_previous_orders? %>
+    <%= link_to t('.see_previous_orders'), previous_orders_profile_path, class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</p>
+
 <div class="container mt-3">
   <h2><%= t('.title')%></h2>
+
   <%= render partial: 'form' %>
 </div>

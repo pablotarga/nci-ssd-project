@@ -17,6 +17,10 @@ class ProfilesController < ApplicationController
     render 'show'
   end
 
+  def previous_orders
+    @user_previous_orders = current_user.orders.where(:status.ne => 'pending')
+  end
+
   private
 
   def update_params

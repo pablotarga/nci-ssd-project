@@ -17,6 +17,7 @@ en:
       current_ip: Your current IP is
     show:
       title: Profile
+      see_previous_orders: See your previous orders
     form:
       save: Save
   product:

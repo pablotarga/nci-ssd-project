@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :update] do
     get :welcome, on: :collection
+    get :previous_orders
   end
 
   namespace :admin do
