@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
   end
 
   def previous_orders
-    @accepted_orders = current_user.orders.accepted
+    @user_previous_orders = current_user.orders.where(:status.ne => 'pending')
   end
 
   private
