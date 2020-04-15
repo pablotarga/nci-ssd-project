@@ -17,10 +17,25 @@ class Admin::ProductsController < AdminController
     end
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(update_params)
+
+    if product.save
+      redirect_to admin_products_path, notice: t('notices.saved_with_success')
+    else
+      flash[:alert] = products.errors.full_message
+      render 'new'
+    end
+  end
+
   private
 
   def update_params
-    _params = extract_params :product, permit: [:title, :description, :tag_list, :quantity, :price, :cost]
+    _params = extract_params :product, permit: [:title, :description, :tag_list, :quantity, :price, :cost, :image_url]
     _params
   end
 
