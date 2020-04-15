@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     delete '/:product_id', action: :destroy, as: 'destroy'
   end
 
+  get '/thank_you' => "pages#thank_you", as: 'thank_you'
+
   get   '/about'  => "pages#about",  as: 'about'
 
   get  '/contact', to: 'contact#new'

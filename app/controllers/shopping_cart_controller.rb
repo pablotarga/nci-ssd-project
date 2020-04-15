@@ -38,7 +38,7 @@ class ShoppingCartController < ApplicationController
   def checkout
     process = service.checkout(checkout_params)
     if process.success?
-      redirect_to root_path, notice: t('notices.checkout_complete')
+      redirect_to thank_you_path, notice: t('notices.checkout_complete')
     else
       redirect_to({action: :pre_checkout}, alert: process.errors)
     end

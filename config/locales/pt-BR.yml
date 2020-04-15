@@ -43,6 +43,11 @@ pt-BR:
     contact: Contact
     profile: Profile
     admin: Admin
+  thank_you:
+    thank_you_message: Thank you for your order!
+    order_received: We received your order and we are working on it
+    go_to_orders: View my orders
+    back_to_store: Continue shopping
 
   shared:
     add_to_cart: Add to Cart
