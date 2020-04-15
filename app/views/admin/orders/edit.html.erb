@@ -1,0 +1,39 @@
+<h1><%= Order.model_name.human(count: 1) %> <%= @order.id %> </h1>
+
+<h3><small><i class="fas fa-fw fa-boxes"></i></small> <%= Product.model_name.human(count: 2) %></h3>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= OrderItem.human_attribute_name(:product_title) %></th>
+        <th scope="col"><%= OrderItem.human_attribute_name(:quantity) %></th>
+        <th  class="text-right" scope="col"><%= OrderItem.human_attribute_name(:total) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.order_items.each do |item| %>
+        <tr>
+          <th scope="row"><%= item.product_title%></th>
+          <td ><%= item.quantity %></td>
+          <td class="text-right"><%= number_to_currency(item.total, unit: "€") %></td>
+        </tr>
+      <% end %>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td class="text-right"><strong><%= number_to_currency(@order.total, unit: "€") %></strong></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3><small><i class="fas fa-fw fa-truck"></i></small> <%= t('.ship_to') %></h3>
+<div class="mb-5">
+  <p class="text-dark mb-1"><%= @order.delivery_country %></p>
+  <p class="text-dark mb-1"><%= @order.delivery_administrative %></p>
+  <p class="text-dark mb-1"><%= @order.delivery_city %></p>
+  <p class="text-dark mb-1"><%= @order.delivery_address %></p>
+</div>
+
+<%= render 'form' %>

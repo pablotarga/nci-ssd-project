@@ -1,0 +1,13 @@
+<%= form_for [:admin, @order] do |f| %>
+
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.select :status, Order::STATUS, {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t('shared.save'),  class: 'btn btn-primary' %>
+    <%= link_to t('shared.back'), admin_orders_path, class: 'btn btn-link'%>
+  </div>
+
+<% end %>

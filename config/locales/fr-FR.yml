@@ -129,6 +129,10 @@ fr-FR:
         delivery_eta_date: Delivery ETA Date
         total: Total
         dispatch_at: Dispatch at
+      order_item:
+        product_title: Product title
+        quantity: Quantity
+        total: Total
 
   time:
     formats:
