@@ -17,11 +17,33 @@ en:
       current_ip: Your current IP is
     show:
       title: Profile
+      see_previous_orders: See your previous orders
     form:
       save: Save
   product:
     in_stock: In Stock
     out_stock: Out of Stock
+  contact:
+    new:
+      title: Contact Us
+      description: Have a question? Feedback? Let us know and we'll get back to you!
+      name: Name
+      email: Email
+      message: Message
+      placeholder: Your %{title}
+  shopping_cart:
+    show:
+      title: Shopping Cart
+      checkout: Checkout
+      must_login: You must login/register to proceed
+    pre_checkout:
+      amount_due: Amount due
+  navbar:
+    about: About Us
+    contact: Contact
+    profile: Profile
+    admin: Admin
+
   shared:
     add_to_cart: Add to Cart
     last_auth_at: Last login at
@@ -31,12 +53,15 @@ en:
     logout: Logout
     login: Login
     see_shopping_cart: Access your Shopping Cart
+    abandon: Abandon Shopping Cart
     yes_no:
       'true': Yes
       'false': No
     edit: Edit
     save: Save
+    submit: Submit
     search: Search
+    are_you_sure: Are you sure?
 
   admin:
     sidebar:
@@ -55,10 +80,20 @@ en:
     invalid_credentials: Invalid Credentials
     must_be_admin: Restricted Content! You must be an admin to access.
     not_found: Record not found.
+    cannot_checkout: Shopping Cart cannot be checked out.
+    must_be_person_to_checkout: Must be logged in to checkout
+    oops: Oops, something went wrong!
+    payment_token_required: Stripe Token is required
+    product_not_found: Product not found
+    product_out_of_stock: "%{title} is out of stock"
 
   notices:
     logout: Logged out with success!
     saved_with_success: Saved with success!
+    message_sent: Message sent
+    item_updated: Item %{title} updated!
+    item_removed: Item removed!
+    checkout_complete: Checkout complete
 
   mongoid:
     models:
@@ -79,6 +114,15 @@ en:
         last_auth_at: Last login at
         last_auth_ip: Last login IP
         locale: Locale
+      order:
+        delivery_country: Delivery Country
+        delivery_administrative: Delivery Administrative
+        delivery_city: Delivery City
+        delivery_address: Delivery Address
+        delivery_fee: Delivery Fee
+        delivery_eta_date: Delivery ETA Date
+        total: Total
+        dispatch_at: Dispatch at
 
   time:
     formats:

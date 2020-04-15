@@ -11,7 +11,7 @@
 
   <div class="col-12">
     <%= form_with(model: @cart, url: checkout_shopping_cart_path, id: 'payment-form', method: :put) do |f|%>
-    <p>Amount due <%= number_to_currency @cart.calculate_total %></p>
+    <p><%= t('.amount_due')%> <%= number_to_currency @cart.calculate_total %></p>
 
     <div class="form-group">
       <%= f.label :delivery_country %>

@@ -1,16 +1,13 @@
 class ContactController < ApplicationController
-  layout 'profile'
-
   def create
     name = contact_params[:name]
     email = contact_params[:email]
     message = contact_params[:message]
     ContactMailer.contact_email(name, email, message).deliver
-    redirect_to contact_path, notice: 'Message sent'
+    redirect_to contact_path, notice: t('notices.message_sent')
   end
 
   def new
-    @title = 'About NCI GameStore'
   end
 
   private

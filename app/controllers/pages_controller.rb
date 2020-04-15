@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
-  layout 'profile'
-
   def landpage
-    @title = "Hello World!"
     @products = Product.page(params[:page].presence || 1).per(20).search(search_params)
 
     respond_to do |format|
@@ -12,7 +9,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    @title = "About NCI GameStore"
   end
 
   # def index -> list all item

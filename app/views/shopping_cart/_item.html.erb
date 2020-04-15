@@ -1,4 +1,4 @@
-<div class="col-12">
+<div class="col-12" id="shopping-cart-item-<%= item.id %>">
   <div class="card mb-3">
 
 
@@ -11,18 +11,18 @@
         </div>
 
         <div class="col-2">
-          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity-1), method: :put do %>
+          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity-1), method: :put, remote: true do %>
             <i class="fas fa-minus-square"></i>
           <% end %>
           <%= content_tag :span, item.quantity, class: 'mx-2' %>
-          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity+1), method: :put do %>
+          <%= link_to update_shopping_cart_path(item.product, 'product[quantity]' => item.quantity+1), method: :put, remote: true do %>
             <i class="fas fa-plus-square"></i>
           <% end %>
         </div>
 
         <div class="col-2 text-right">
           <%= number_to_currency (item.product.price*item.quantity) %>
-          <%= link_to destroy_shopping_cart_path(item.product), class: 'ml-2', method: :delete, data: {confirm: 'Are you sure?'} do %>
+          <%= link_to destroy_shopping_cart_path(item.product), class: 'ml-2', method: :delete, data: {confirm: t('shared.are_you_sure')} do %>
             <i class="fas fa-times-circle"></i>
           <% end %>
         </div>
