@@ -16,7 +16,7 @@
     <tr>
       <td><%= order.user.is_a?(Guest) ? "Guest" : order.user.name %></td>
       <td><%= order.order_items.sum(:quantity) %></td>
-      <td><%= order.status.to_s.humanize %></td>
+      <td><%= link_to order.status.to_s.humanize, edit_admin_order_path(order) %></td>
       <td><%= number_to_currency(order.total, unit: "€") %></td>
       <td><%= order.dispatch_at %></td>
     </tr>
