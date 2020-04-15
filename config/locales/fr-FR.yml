@@ -58,6 +58,7 @@ fr-FR:
       'true': Yes
       'false': No
     edit: Edit
+    new: New ${title}
     save: Save
     submit: Submit
     search: Search
