@@ -63,6 +63,7 @@ fr-FR:
       'true': Oui
       'false': Non
     edit: Modifier
+    new: Nouveau ${title}
     save: Sauvegarder
     submit: Soumettre
     search: Chercher
@@ -129,11 +130,15 @@ fr-FR:
         delivery_fee: Frais de livraison
         delivery_eta_date: Date de livraison estimée
         total: Total
-        dispatch_at: Expédié le
+        dispatch_at: Expedié le
         status: Statut
-        quantity: Quantité
+        item_quantity: Quantité
         order_items: Articles
         id: Numéro de commande
+      order_item:
+        product_title: Nom de l'article
+        quantity: Quantité
+        total: Total
 
   time:
     formats:

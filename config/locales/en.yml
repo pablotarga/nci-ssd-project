@@ -63,6 +63,7 @@ en:
       'true': Yes
       'false': No
     edit: Edit
+    new: New %{title}
     save: Save
     submit: Submit
     search: Search
@@ -130,9 +131,13 @@ en:
         total: Total
         dispatch_at: Dispatched at
         status: Status
-        quantity: Quantity
+        item_quantity: Quantity
         order_items: Order items
         id: Order ID
+      order_item:
+        product_title: Product title
+        quantity: Quantity
+        total: Total
 
   time:
     formats:

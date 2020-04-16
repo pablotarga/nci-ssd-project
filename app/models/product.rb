@@ -9,6 +9,7 @@ class Product
   field :price, type: Float, default: 0
   field :cost, type: Float, default: 0
   field :description, type: String
+  field :image_url, type: String
   field :highlighted, type: Boolean
   field :tags, type: Array, default: []
 

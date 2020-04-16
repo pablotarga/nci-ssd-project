@@ -1,3 +1,36 @@
 <div class="container mt-3">
-  <%= render partial: 'previous_orders_form' %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%= Order.human_attribute_name(:id) %></th>
+          <th scope="col"><%= Order.human_attribute_name(:order_items) %></th>
+          <th scope="col"><%= Order.human_attribute_name(:quantity) %></th>
+          <th scope="col"><%= Order.human_attribute_name(:status) %></th>
+          <th scope="col"><%= Order.human_attribute_name(:total) %></th>
+          <th scope="col"><%= Order.human_attribute_name(:dispatch_at) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_previous_orders.each do |order| %>
+          <tr>
+            <td><%= order.id.to_s.humanize %></td>
+            <td>
+              <% order.order_items.each do |item|%>
+                <%= item.product.title.to_s.humanize %><br/>
+              <% end %>
+            </td>
+            <td>
+              <% order.order_items.each do |item|%>
+                <%= item.quantity.to_s.humanize %><br/>
+              <% end %>
+            </td>
+            <td><%= order.status.to_s.humanize %></td>
+            <td><%= number_to_currency(order.total, unit: "€") %></td>
+            <td><%= order.dispatch_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

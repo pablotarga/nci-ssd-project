@@ -1,16 +1,13 @@
 production:
   clients:
     default:
-      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>
+      uri: <%= ENV['MONGODB_URI'] || ENV['MONGO_URL'] %>
       options:
-        auth_mech: :scram
-        auth_source: admin
-  options:
 
 development:
   clients:
     default:
-      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>
+      uri: <%= ENV.fetch('MONGODB_URI'){''}%>
       options:
         auth_mech: :scram
         auth_source: admin
@@ -19,7 +16,7 @@ development:
 test:
   clients:
     default:
-      uri: <%= ENV.fetch('CONNECTION_URL'){''}%>_test
+      uri: <%= ENV.fetch('MONGODB_URI'){''}%>_test
       options:
         auth_mech: :scram
         auth_source: admin
