@@ -124,7 +124,7 @@ fr-FR:
         locale: Locale
       order:
         delivery_country: Pays de livraison
-        delivery_administrative: Code région
+        delivery_administrative: Département
         delivery_city: Ville
         delivery_address: Addresse
         delivery_fee: Frais de livraison
@@ -132,7 +132,7 @@ fr-FR:
         total: Total
         dispatch_at: Expedié le
         status: Statut
-        item_quantity: Quantité
+        quantity: Quantité
         order_items: Articles
         id: Numéro de commande
       order_item:
