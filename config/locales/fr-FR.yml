@@ -1,72 +1,72 @@
 fr-FR:
   register:
     new:
-      register: Register
-      go_to_login: Already have an account?
-      cta: Register
+      register: S'enregistrer
+      go_to_login: Vous avez déjà un compte?
+      cta: S'enregistrer
   session:
     new:
-      login: Login
-      go_to_registration: Don't have an account?
-      cta: Login
+      login: Se connecter
+      go_to_registration: Vous n'avez pas de compte?
+      cta: Se connecter
   profiles:
     welcome:
-      welcome: Welcome
-      welcome_back: Welcome back
-      first_timer: I see this is the first time you access the system!
-      current_ip: Your current IP is
+      welcome: Bienvenue
+      welcome_back: Bienvenue de nouveau
+      first_timer: Je vois que c'est la première fois que vous vous connectez!
+      current_ip: Votre adresse IP est
     show:
-      title: Profile
-      see_previous_orders: See your previous orders
+      title: Profil
+      see_previous_orders: Voir les commandes précédentes
     form:
-      save: Save
+      save: Sauvegarder
   product:
-    in_stock: In Stock
-    out_stock: Out of Stock
+    in_stock: En stock
+    out_stock: En rupture de stock
   contact:
     new:
-      title: Contact Us
-      description: Have a question? Feedback? Let us know and we'll get back to you!
-      name: Name
-      email: Email
+      title: Contactez-nous
+      description: Vous avez une question à nous poser ou un retour à nous faire? Faites-nous savoir et on vous répondra!
+      name: Nom
+      email: Adresse e-mail
       message: Message
-      placeholder: Your %{title}
+      placeholder: Votre %{title}
   shopping_cart:
     show:
-      title: Shopping Cart
-      checkout: Checkout
-      must_login: You must login/register to proceed
+      title: Panier
+      must_login: Vous devez vous enregistrer/connecter pour continuer
     pre_checkout:
-      amount_due: Amount due
+      amount_due: Montant dû
   navbar:
-    about: About Us
+    about: À propos
     contact: Contact
-    profile: Profile
+    profile: Profil
     admin: Admin
   thank_you:
-    thank_you_message: Thank you for your order!
-    order_received: We received your order and we are working on it
-    go_to_orders: View my orders
-    back_to_store: Continue shopping
+    thank_you_message: Merci pour votre commande!
+    order_received: Nous avons bien reçu votre commande qui est en cours de traitement
+    go_to_orders: Voir mes commandes
+    back_to_store: Continuer mes achats
 
   shared:
-    add_to_cart: Add to Cart
-    last_auth_at: Last login at
-    last_auth_ip: Last login IP
-    browse_products: Browse Products
-    back: Back
-    logout: Logout
-    login: Login
-    see_shopping_cart: Access your Shopping Cart
-    abandon: Abandon Shopping Cart
+    add_to_cart: Ajouter au panier
+    last_auth_at: Dernière connexion le
+    last_auth_ip: Dernière adresse IP de connexion
+    browse_products: Parcourir les produits
+    back: Retour
+    logout: Se déconnecter
+    login: Se connecter
+    see_shopping_cart: Accéder au panier
+    abandon: Abandonner le panier
+    checkout: Payer
     yes_no:
-      'true': Yes
-      'false': No
-    edit: Edit
-    save: Save
-    submit: Submit
-    search: Search
-    are_you_sure: Are you sure?
+      'true': Oui
+      'false': Non
+    edit: Modifier
+    save: Sauvegarder
+    submit: Soumettre
+    search: Chercher
+    are_you_sure: Êtes-vous sûr?
 
   admin:
     sidebar:
@@ -82,52 +82,58 @@ fr-FR:
       by: by
 
   errors:
-    invalid_credentials: Invalid Credentials
-    must_be_admin: Restricted Content! You must be an admin to access.
-    not_found: Record not found.
+    invalid_credentials: Idenfitication invalide
+    must_be_admin: Contenu restreint! Vous devez être un utilisateur admin pour pouvoir accéder à cette page
+    not_found: Ressource non trouvée
     cannot_checkout: Shopping Cart cannot be checked out.
-    must_be_person_to_checkout: Must be logged in to checkout
-    oops: Oops, something went wrong!
-    payment_token_required: Stripe Token is required
-    product_not_found: Product not found
-    product_out_of_stock: "%{title} is out of stock"
+    must_be_person_to_checkout: Vous devez être connecté pour finaliser votre commande
+    oops: Oups, une erreur s'est produite
+    payment_token_required: Le token de Stripe est requis
+    product_not_found: Produit non trouvé
+    product_out_of_stock: "%{title} est en rupture de stock"
+    item_removed: Article supprimé!
+
 
   notices:
-    logout: Logged out with success!
-    saved_with_success: Saved with success!
-    message_sent: Message sent
-    item_updated: Item %{title} updated!
-    item_removed: Item removed!
-    checkout_complete: Checkout complete
+    logout: Déconnexion réussie!
+    saved_with_success: Sauvegarde réussie!
+    message_sent: Message envoyé
+    item_updated: Article %{title} mis à jour!
+    checkout_complete: Paiement effectué
 
   mongoid:
     models:
       person:
-        one: Person
-        other: People
+        one: Utilisateur
+        other: Utilisateurs
       order:
-        one: Order
-        other: Orders
+        one: Commande
+        other: Commandes
       product:
-        one: Product
-        other: Products
+        one: Produit
+        other: Produits
     attributes:
       person:
-        name: Name
-        email: Email
-        password: Password
-        last_auth_at: Last login at
-        last_auth_ip: Last login IP
+        title: Titre
+        name: Nom
+        email: Addresse e-mail
+        password: Mot de passe
+        last_auth_at: Dernière connexion le
+        last_auth_ip: Dernière addresse IP de connexion
         locale: Locale
       order:
-        delivery_country: Delivery Country
-        delivery_administrative: Delivery Administrative
-        delivery_city: Delivery City
-        delivery_address: Delivery Address
-        delivery_fee: Delivery Fee
-        delivery_eta_date: Delivery ETA Date
+        delivery_country: Pays de livraison
+        delivery_administrative: Code région
+        delivery_city: Ville
+        delivery_address: Addresse
+        delivery_fee: Frais de livraison
+        delivery_eta_date: Date de livraison estimée
         total: Total
-        dispatch_at: Dispatch at
+        dispatch_at: Expédié le
+        status: Statut
+        quantity: Quantité
+        order_items: Articles
+        id: Numéro de commande
 
   time:
     formats:
