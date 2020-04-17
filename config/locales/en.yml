@@ -134,10 +134,25 @@ en:
         item_quantity: Quantity
         order_items: Order items
         id: Order ID
+        status/pending: Pending
+        status/waiting_payment: Waiting Payment
+        status/accepted: Accepted
+        status/dispatched: Dispatched
+        status/closed: Closed
+        status/denied: Denied
+        status/waiting_refund: Waiting Refund
+        status/refunded: Refunded
       order_item:
         product_title: Product title
         quantity: Quantity
         total: Total
+      product:
+        title: Title
+        description: Description
+        tags: Tags
+        quantity: Quantity
+        price_per_unit: Price per unit
+        cost: Cost
 
   time:
     formats:

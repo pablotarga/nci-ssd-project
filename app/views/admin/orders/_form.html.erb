@@ -2,7 +2,7 @@
 
   <div class="form-group">
     <%= f.label :status %>
-    <%= f.select :status, Order::STATUS, {}, class: 'form-control' %>
+    <%= f.select :status, Order::STATUS.map{|e| [Order.human_attribute_name('status/%s' % e), e]}, {}, class: 'form-control' %>
   </div>
 
   <div class="form-group">
