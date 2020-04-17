@@ -25,7 +25,7 @@
                 <%= item.quantity.to_s.humanize %><br/>
               <% end %>
             </td>
-            <td><%= order.status.to_s.humanize %></td>
+            <td><%= Order.human_attribute_name('status/%s' % order.status.to_s) %></td>
             <td><%= number_to_currency(order.total, unit: "€") %></td>
             <td><%= order.dispatch_at %></td>
           </tr>
