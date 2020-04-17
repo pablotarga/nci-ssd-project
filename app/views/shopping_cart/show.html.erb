@@ -14,7 +14,7 @@
   <div class="text-center">
 
     <% if current_user.is_a?(Person)%>
-    <%= link_to t('.checkout'), pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
+    <%= link_to t('shared.checkout'), pre_checkout_shopping_cart_path, class: 'btn btn-success btn-lg' if @cart.can_checkout? %>
     <% else %>
     <%= link_to t('.must_login'), login_path(redirect_to: shopping_cart_url), class: 'btn btn-success btn-lg' %>
     <% end %>

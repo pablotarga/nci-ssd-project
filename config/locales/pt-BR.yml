@@ -34,7 +34,6 @@ pt-BR:
   shopping_cart:
     show:
       title: Shopping Cart
-      checkout: Checkout
       must_login: You must login/register to proceed
     pre_checkout:
       amount_due: Amount due
@@ -59,6 +58,7 @@ pt-BR:
     login: Login
     see_shopping_cart: Access your Shopping Cart
     abandon: Abandon Shopping Cart
+    checkout: Checkout
     yes_no:
       'true': Yes
       'false': No
@@ -92,13 +92,13 @@ pt-BR:
     payment_token_required: Stripe Token is required
     product_not_found: Product not found
     product_out_of_stock: "%{title} is out of stock"
+    item_removed: Item removed!
 
   notices:
     logout: Logged out with success!
     saved_with_success: Saved with success!
     message_sent: Message sent
     item_updated: Item %{title} updated!
-    item_removed: Item removed!
     checkout_complete: Checkout complete
 
   mongoid:
@@ -114,6 +114,7 @@ pt-BR:
         other: Products
     attributes:
       person:
+        title: Title
         name: Name
         email: Email
         password: Password
@@ -128,7 +129,11 @@ pt-BR:
         delivery_fee: Delivery Fee
         delivery_eta_date: Delivery ETA Date
         total: Total
-        dispatch_at: Dispatch at
+        dispatch_at: Dispatched at
+        status: Status
+        item_quantity: Quantity
+        order_items: Order items
+        id: Order ID
       order_item:
         product_title: Product title
         quantity: Quantity
