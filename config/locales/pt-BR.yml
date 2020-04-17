@@ -81,7 +81,9 @@ pt-BR:
       all_rights_reserved: Todos os direitos reservados
       this_is_made: Feito com
       by: por
-
+    orders:
+      edit:
+        ship_to: Destino
   errors:
     invalid_credentials: Usuário/Senha invalidos
     must_be_admin: Conteúdo Restrito! Você precisa ser administrador para acessar.
@@ -112,6 +114,9 @@ pt-BR:
       product:
         one: Produto
         other: Produtos
+      payment:
+        one: Pagamento
+        other: Pagamentos
     attributes:
       person:
         title: Título
@@ -153,6 +158,15 @@ pt-BR:
         quantity: Quantidade
         price_per_unit: Preço por unidade
         cost: Custo
+      payment:
+        create_at: Criado em
+        status: Situação
+        status/pending: Pendente
+        status/complete: Completo
+        status/refunding: Reembolso
+        status/canceled: Cancelado
+        status/failed: Falhou
+        total: Total
 
   time:
     formats:

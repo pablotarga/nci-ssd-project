@@ -81,7 +81,9 @@ en:
       all_rights_reserved: All rights reserved
       this_is_made:  This is made with
       by: by
-
+    orders:
+      edit:
+        ship_to: Ship To
   errors:
     invalid_credentials: Invalid Credentials
     must_be_admin: Restricted Content! You must be an admin to access.
@@ -112,6 +114,9 @@ en:
       product:
         one: Product
         other: Products
+      payment:
+        one: Payment
+        other: Payments
     attributes:
       person:
         title: Title
@@ -153,6 +158,15 @@ en:
         quantity: Quantity
         price_per_unit: Price per unit
         cost: Cost
+      payment:
+        create_at: Created At
+        status: Status
+        status/pending: Pending
+        status/complete: Complete
+        status/refunding: Refunding
+        status/canceled: Canceled
+        status/failed: Failed
+        total: Total
 
   time:
     formats:

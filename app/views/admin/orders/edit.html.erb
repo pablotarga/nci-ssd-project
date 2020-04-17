@@ -36,4 +36,38 @@
   <p class="text-dark mb-1"><%= @order.delivery_address %></p>
 </div>
 
+
+<h3><small><i class="fas fa-fw fa-credit-card"></i></small> <%= Payment.model_name.human(count: 2) %></h3>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= Payment.human_attribute_name(:created_at) %></th>
+        <th scope="col"><%= Payment.human_attribute_name(:status) %></th>
+        <th  class="text-right" scope="col"><%= Payment.human_attribute_name(:total) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.payments.each do |item| %>
+        <tr class="<%= 'text-danger' if item.failed? %>">
+          <td><%= l(item.created_at, format: :long) %></td>
+          <td>
+            <small><%= content_tag(:i, nil, class: 'fas fa-fw fa-exclamation-triangle cursor-help', title: item.reason) if item.reason.present?%></small>
+            <%= Payment.human_attribute_name('status/%s' % item.status) %></td>
+          <td class="text-right"><%= number_to_currency(item.total, unit: "€") %></td>
+        </tr>
+      <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="text-right"><strong><%= number_to_currency(@order.total, unit: "€") %></strong></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
 <%= render 'form' %>
