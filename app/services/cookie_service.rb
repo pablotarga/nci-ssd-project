@@ -3,7 +3,7 @@ class CookieService
     {
       value: user.id.to_s,
       expires: 1.year,
-      httponly: true
+      httponly: true # hide from javascript
     }
   end
 end

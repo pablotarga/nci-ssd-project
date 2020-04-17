@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.where(id: cookies[:user_id]).first if cookies[:user_id].present?
+    @current_user ||= User.where(id: cookies.encrypted[:user_id]).first if cookies[:user_id].present?
   end
   helper_method :current_user
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     UserTransferService.new(current_user, authentication.get(:user)).transfer if current_user.is_a?(Guest)
 
     @current_user = authentication.get(:user)
-    cookies[:user_id] = authentication.get(:cookie)
+    cookies.encrypted[:user_id] = authentication.get(:cookie)
   end
 
 
