@@ -86,14 +86,13 @@ fr-FR:
     invalid_credentials: Idenfitication invalide
     must_be_admin: Contenu restreint! Vous devez être un utilisateur admin pour pouvoir accéder à cette page
     not_found: Ressource non trouvée
-    cannot_checkout: Shopping Cart cannot be checked out.
+    cannot_checkout: Opération non effectuée
     must_be_person_to_checkout: Vous devez être connecté pour finaliser votre commande
     oops: Oups, une erreur s'est produite
     payment_token_required: Le token de Stripe est requis
     product_not_found: Produit non trouvé
     product_out_of_stock: "%{title} est en rupture de stock"
     item_removed: Article supprimé!
-
 
   notices:
     logout: Déconnexion réussie!
@@ -135,10 +134,25 @@ fr-FR:
         quantity: Quantité
         order_items: Articles
         id: Numéro de commande
+        status/pending: En attente
+        status/waiting_payment: En attente de paiement
+        status/accepted: Accepté
+        status/dispatched: Expedié
+        status/closed: Fermé
+        status/denied: Refusé
+        status/waiting_refund: En attente de remboursement
+        status/refunded: Remboursé
       order_item:
         product_title: Nom de l'article
         quantity: Quantité
         total: Total
+      product:
+        title: Nom
+        description: Description
+        tags: Tags
+        quantity: Quantité
+        price_per_unit: Prix à l'unité
+        cost: Coût
 
   time:
     formats:
