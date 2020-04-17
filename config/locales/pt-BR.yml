@@ -1,143 +1,158 @@
 pt-BR:
   register:
     new:
-      register: Register
-      go_to_login: Already have an account?
-      cta: Register
+      register: Cadastro
+      go_to_login: Ja possue uma conta?
+      cta: Entrar
   session:
     new:
       login: Login
-      go_to_registration: Don't have an account?
+      go_to_registration: Não é cliente ainda?
       cta: Login
   profiles:
     welcome:
-      welcome: Welcome
-      welcome_back: Welcome back
-      first_timer: I see this is the first time you access the system!
-      current_ip: Your current IP is
+      welcome: Bem vindo
+      welcome_back: Bem vindo novamente
+      first_timer: Esta é a primeira vez por aqui!
+      current_ip: Seu ip atual é
     show:
-      title: Profile
-      see_previous_orders: See your previous orders
+      title: Perfil
+      see_previous_orders: Veja seus pedidos anteriores
     form:
-      save: Save
+      save: Salvar
   product:
-    in_stock: In Stock
-    out_stock: Out of Stock
+    in_stock: Em Estoque
+    out_stock: Em Falta
   contact:
     new:
-      title: Contact Us
-      description: Have a question? Feedback? Let us know and we'll get back to you!
-      name: Name
+      title: Contate-nos
+      description: Possue alguma duvida? Sugestão? Deixe nos saber e entraremos em contato em breve!
+      name: Nome
       email: Email
-      message: Message
-      placeholder: Your %{title}
+      message: Comentário
+      placeholder: Seu %{title}
   shopping_cart:
     show:
-      title: Shopping Cart
-      must_login: You must login/register to proceed
+      title: Carrinho
+      must_login: Você deve logar ou se registrar para prosseguir
     pre_checkout:
-      amount_due: Amount due
+      amount_due: Total à pagar
   navbar:
-    about: About Us
-    contact: Contact
-    profile: Profile
-    admin: Admin
+    about: Sobre nós
+    contact: Contato
+    profile: Perfil
+    admin: Administração
   thank_you:
-    thank_you_message: Thank you for your order!
-    order_received: We received your order and we are working on it
-    go_to_orders: View my orders
-    back_to_store: Continue shopping
+    thank_you_message: Obrigado pelo seu Pedido!
+    order_received: Recebemos o seu pedido e já estamos trabalhando nele
+    go_to_orders: Veja seus pedidos
+    back_to_store: Continue comprando
 
   shared:
-    add_to_cart: Add to Cart
-    last_auth_at: Last login at
-    last_auth_ip: Last login IP
-    browse_products: Browse Products
-    back: Back
-    logout: Logout
-    login: Login
-    see_shopping_cart: Access your Shopping Cart
-    abandon: Abandon Shopping Cart
-    checkout: Checkout
+    add_to_cart: Adicione ao Carrinho
+    last_auth_at: Último Acesso às
+    last_auth_ip: IP do Último Acesso
+    browse_products: Veja os Produtos
+    back: Voltar
+    logout: Sair
+    login: Entrar
+    see_shopping_cart: Acesse seu Carrinho
+    abandon: Abandone este Carrinho
+    checkout: Comprar
     yes_no:
-      'true': Yes
-      'false': No
-    edit: Edit
-    new: New ${title}
-    save: Save
-    submit: Submit
-    search: Search
-    are_you_sure: Are you sure?
+      'true': Sim
+      'false': Não
+    edit: Editar
+    new: Novo %{title}
+    save: Salvar
+    submit: Enviar
+    search: Procurar
+    are_you_sure: Tem certeza?
 
   admin:
     sidebar:
       dashboard: Dashboard
-      people: People
-      orders: Orders
-      products: Products
-      go_to_store: Back to Store
+      people: Pessoas
+      orders: Pedidos
+      products: Produtos
+      go_to_store: Voltar para a loja
     copyright:
-      copyright: Copyright
-      all_rights_reserved: All rights reserved
-      this_is_made:  This is made with
-      by: by
+      copyright: Direitos Autorais
+      all_rights_reserved: Todos os direitos reservados
+      this_is_made: Feito com
+      by: por
 
   errors:
-    invalid_credentials: Invalid Credentials
-    must_be_admin: Restricted Content! You must be an admin to access.
-    not_found: Record not found.
-    cannot_checkout: Shopping Cart cannot be checked out.
-    must_be_person_to_checkout: Must be logged in to checkout
-    oops: Oops, something went wrong!
-    payment_token_required: Stripe Token is required
-    product_not_found: Product not found
-    product_out_of_stock: "%{title} is out of stock"
-    item_removed: Item removed!
+    invalid_credentials: Usuário/Senha invalidos
+    must_be_admin: Conteúdo Restrito! Você precisa ser administrador para acessar.
+    not_found: Registro não encontrado.
+    cannot_checkout: Carrinho não pode ser finalizado.
+    must_be_person_to_checkout: Você precisa estar logado para comprar
+    oops: Opa, algo deu errado!
+    payment_token_required: Autorização de pagamento necessária
+    product_not_found: Produto não encontrado
+    product_out_of_stock: "%{title} em falta"
+    item_removed: Item removido!
 
   notices:
-    logout: Logged out with success!
-    saved_with_success: Saved with success!
-    message_sent: Message sent
-    item_updated: Item %{title} updated!
-    checkout_complete: Checkout complete
+    logout: Sessão expirada com sucesso!
+    saved_with_success: Salvo com sucesso!
+    message_sent: Mensagem enviada
+    item_updated: Item %{title} atualizado!
+    checkout_complete: Pedido finalizado
 
   mongoid:
     models:
       person:
-        one: Person
-        other: People
+        one: Pessoa
+        other: Pessoas
       order:
-        one: Order
-        other: Orders
+        one: Pedido
+        other: Pedidos
       product:
-        one: Product
-        other: Products
+        one: Produto
+        other: Produtos
     attributes:
       person:
-        title: Title
-        name: Name
+        title: Título
+        name: Nome
         email: Email
-        password: Password
-        last_auth_at: Last login at
-        last_auth_ip: Last login IP
-        locale: Locale
+        password: Senha
+        last_auth_at: Último Acesso às
+        last_auth_ip: IP do Último Acesso
+        locale: Linguagem
       order:
-        delivery_country: Delivery Country
-        delivery_administrative: Delivery Administrative
-        delivery_city: Delivery City
-        delivery_address: Delivery Address
-        delivery_fee: Delivery Fee
-        delivery_eta_date: Delivery ETA Date
+        delivery_country: País da Entrega
+        delivery_administrative: Estado da Entrega
+        delivery_city: Cidade da Entrega
+        delivery_address: Endereço da Entrega
+        delivery_fee: Taxa da Entrega
+        delivery_eta_date: Entrega estimada para
         total: Total
-        dispatch_at: Dispatched at
-        status: Status
-        item_quantity: Quantity
-        order_items: Order items
-        id: Order ID
+        dispatch_at: Enviado às
+        status: Situação
+        item_quantity: Quantidade
+        order_items: Itens
+        id: ID do Pedido
+        status/pending: Pendente
+        status/waiting_payment: Aguardando Pagamento
+        status/accepted: Aceito
+        status/dispatched: Enviado
+        status/closed: Finalizado
+        status/denied: Negado
+        status/waiting_refund: Aguardando Estorno
+        status/refunded: Estornado
       order_item:
-        product_title: Product title
-        quantity: Quantity
+        product_title: Produto
+        quantity: Quantidade
         total: Total
+      product:
+        title: Títutlo
+        description: Descrição
+        tags: Tags
+        quantity: Quantidade
+        price_per_unit: Preço por unidade
+        cost: Custo
 
   time:
     formats:
