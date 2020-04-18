@@ -72,11 +72,11 @@ fr-FR:
 
   admin:
     sidebar:
-      dashboard: Dashboard
-      people: People
-      orders: Orders
-      products: Products
-      go_to_store: Back to Store
+      dashboard: Tableau de bord
+      people: Utilisateurs
+      orders: Commandes
+      products: Produits
+      go_to_store: Retour à la boutique
     copyright:
       copyright: Copyright
       all_rights_reserved: All rights reserved
