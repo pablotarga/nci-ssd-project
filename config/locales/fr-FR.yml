@@ -82,7 +82,9 @@ fr-FR:
       all_rights_reserved: All rights reserved
       this_is_made:  This is made with
       by: by
-
+    orders:
+      edit:
+        ship_to: Livré à
   errors:
     invalid_credentials: Idenfitication invalide
     must_be_admin: Contenu restreint! Vous devez être un utilisateur admin pour pouvoir accéder à cette page
@@ -113,6 +115,9 @@ fr-FR:
       product:
         one: Produit
         other: Produits
+      payment:
+        one: Paiement
+        other: Paiements
     attributes:
       person:
         title: Titre
@@ -154,6 +159,15 @@ fr-FR:
         quantity: Quantité
         price_per_unit: Prix à l'unité
         cost: Coût
+      payment:
+        create_at: Created At
+        status: Statut
+        status/pending: En attente
+        status/complete: Effectué
+        status/refunding: Remboursé
+        status/canceled: Annulé
+        status/failed: Echoué
+        total: Total
 
   time:
     formats:

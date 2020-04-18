@@ -10,6 +10,7 @@ class Payment
   field :total, type: Float, default: 0
   field :provider, type: String
   field :provider_id, type: String
+  field :reason, type: String
 
   validates :total, numericality: {greater_than: 0}
 end

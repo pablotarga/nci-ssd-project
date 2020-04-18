@@ -97,8 +97,11 @@ class ShoppingCartService < ApplicationService
         source: token,
         description: 'Order number #'+cart.id,
       })
+
+      cart.payments.create(provider: 'Stripe', provider_id: charge.id, total: total, status: :complete)
       success!(charge: charge, total: total)
     rescue Stripe::CardError => e
+      cart.payments.create(provider: 'Stripe', provider_id: e.error.charge, reason: e.error.message, total: total, status: :failed)
       fail!(errors: e.error.message)
     end
 
