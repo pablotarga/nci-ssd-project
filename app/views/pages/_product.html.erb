@@ -4,13 +4,10 @@
       <div class="card-img" style="height: 150px; background-size: cover; background-image: url(<%= product.image_url.presence || image_url('placeholder.png')%>);"></div>
       <%#= image_tag product.image_url || 'placeholder.png', alt: product.title, class: 'card-img' %>
       <div class="card-img-overlay d-flex justify-content-end">
-        <a href="#" class="card-link text-danger like">
-          <i class="fas fa-heart"></i>
-        </a>
       </div>
     </div>
     <div class="card-block card-body d-flex flex-column">
-      <h4 class="card-title"><%= product.title %></h4>
+      <h4 class="card-title"><%= link_to product.title, product_path(product) %></h4>
 
       <h6 class="card-subtitle mb-2">
         <% if product.in_stock? %>

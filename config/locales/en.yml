@@ -50,6 +50,7 @@ en:
 
   shared:
     add_to_cart: Add to Cart
+    quantity_cart: "%{number} in your cart"
     last_auth_at: Last login at
     last_auth_ip: Last login IP
     browse_products: Browse Products

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     root "dashboard#show"
   end
 
+  resources :products, only: [:show]
 
   root "pages#landpage"
 end
