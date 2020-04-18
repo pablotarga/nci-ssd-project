@@ -27,15 +27,7 @@
       <div class="price <%= product.in_stock? ? 'text-success' : 'text-muted' %>">
         <h5 class="mt-4"><%= number_to_currency product.price %></h5>
       </div>
-      <% if in_shopping_cart?(product) %>
-        <%= link_to update_shopping_cart_path(product, 'product[quantity]' => 1, 'product[increment]' => true), method: :put, class: 'btn btn-info mt-3' do%>
-        <i class="fas fa-shopping-cart"></i> <%= t('shared.quantity_cart', number: get_product_amount(product)) %>
-        <% end %>
-      <% elsif product.in_stock? %>
-        <%= link_to update_shopping_cart_path(product, 'product[quantity]' => 1, 'product[increment]' => true), method: :put, class: 'btn btn-danger mt-3' do%>
-        <i class="fas fa-shopping-cart"></i> <%= t('shared.add_to_cart')%>
-        <% end %>
-      <% end %>
+      <%= render partial: 'shared/product_cart_button', locals: {product: product} %>
     </div>
   </div>
 </div>
