@@ -69,6 +69,7 @@ en:
     submit: Submit
     search: Search
     are_you_sure: Are you sure?
+    sending: Sending...
 
   admin:
     sidebar:

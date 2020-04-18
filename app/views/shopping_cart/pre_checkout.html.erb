@@ -34,7 +34,7 @@
     </div>
 
     <div class="text-center">
-      <%= f.submit t('shared.checkout'), class: 'btn btn-success btn-lg' %>
+      <%= f.submit t('shared.checkout'), id: 'submit-button', class: 'btn btn-success btn-lg', data: {disable_with: t('shared.sending')} %>
     </div>
     <% end %>
   </div>
@@ -61,9 +61,15 @@
   };
 
   var card = elements.create('card', { style: style, hidePostalCode: true });
+  var form = document.getElementById('payment-form');
+  var submit = document.getElementById('submit-button');
   card.mount('#card-element');
 
   card.addEventListener('change', function (event) {
+    if(submit.disabled){
+      $.rails.enableElement(submit);
+    }
+
     var displayError = document.getElementById('card-errors');
     if (event.error) {
       displayError.textContent = event.error.message;
@@ -71,8 +77,6 @@
       displayError.textContent = '';
     }
   });
-
-  var form = document.getElementById('payment-form');
 
   form.addEventListener('ajax:before', function (event) {
     event.preventDefault();
@@ -82,12 +86,19 @@
         // Inform the user if there was an error.
         var errorElement = document.getElementById('card-errors');
         errorElement.textContent = result.error.message;
+        enable();
       } else {
         // Send the token to your server.
         stripeTokenHandler(result.token);
       }
     });
   });
+
+  function enable(){
+    setTimeout(() => {
+      $.rails.enableElement(submit);
+    }, 1000);
+  }
 
   // Submit the form with the token ID.
   function stripeTokenHandler(token) {

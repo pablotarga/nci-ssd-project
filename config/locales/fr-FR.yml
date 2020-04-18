@@ -69,6 +69,7 @@ fr-FR:
     submit: Soumettre
     search: Chercher
     are_you_sure: Êtes-vous sûr?
+    sending: Envoi...
 
   admin:
     sidebar:

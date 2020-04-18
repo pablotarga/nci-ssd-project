@@ -69,6 +69,7 @@ pt-BR:
     submit: Enviar
     search: Procurar
     are_you_sure: Tem certeza?
+    sending: Enviando...
 
   admin:
     sidebar:
