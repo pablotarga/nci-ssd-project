@@ -104,8 +104,6 @@ class ShoppingCartService < ApplicationService
       cart.payments.create(provider: 'Stripe', provider_id: e.error.charge, reason: e.error.message, total: total, status: :failed)
       fail!(errors: e.error.message)
     end
-
-
   end
 
 
@@ -118,6 +116,20 @@ class ShoppingCartService < ApplicationService
     cart.update_attributes(status: :pending, total: nil)
 
     success!
+  end
+
+  def self.refund(payment)
+    return fail!(errors: :payment_is_not_complete) unless payment.complete?
+    Stripe.api_key = Rails.application.credentials.stripe[:secret_key]
+
+    begin
+      refund = Stripe::Refund.create({charge: payment.provider_id})
+      payment.refunding!
+      payment.order.refunded!
+      success!(refund: refund)
+    rescue Stripe::CardError => e
+      fail!(errors: e.error.message || :oops)
+    end
   end
 
 end

@@ -96,6 +96,7 @@ fr-FR:
     product_not_found: Produit non trouvé
     product_out_of_stock: "%{title} est en rupture de stock"
     item_removed: Article supprimé!
+    payment_is_not_complete: Le payement doit être complété
 
   notices:
     logout: Déconnexion réussie!
@@ -103,6 +104,7 @@ fr-FR:
     message_sent: Message envoyé
     item_updated: Article %{title} mis à jour!
     checkout_complete: Paiement effectué
+    refunded_with_success: Remboursé avec succès
 
   mongoid:
     models:

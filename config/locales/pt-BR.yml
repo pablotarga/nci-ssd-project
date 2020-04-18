@@ -58,7 +58,7 @@ pt-BR:
     logout: Sair
     login: Entrar
     see_shopping_cart: Acesse seu Carrinho
-    abandon: Abandone este Carrinho
+    abandon: Abandonar Carrinho
     checkout: Comprar
     yes_no:
       'true': Sim
@@ -96,6 +96,7 @@ pt-BR:
     product_not_found: Produto não encontrado
     product_out_of_stock: "%{title} em falta"
     item_removed: Item removido!
+    payment_is_not_complete: Situação do pagamento precisa estar em completo
 
   notices:
     logout: Sessão expirada com sucesso!
@@ -103,6 +104,7 @@ pt-BR:
     message_sent: Mensagem enviada
     item_updated: Item %{title} atualizado!
     checkout_complete: Pedido finalizado
+    refunded_with_success: Reembolso realizado com sucesso!
 
   mongoid:
     models:
@@ -146,8 +148,8 @@ pt-BR:
         status/dispatched: Enviado
         status/closed: Finalizado
         status/denied: Negado
-        status/waiting_refund: Aguardando Estorno
-        status/refunded: Estornado
+        status/waiting_refund: Aguardando Reembolso
+        status/refunded: Reembolsado
       order_item:
         product_title: Produto
         quantity: Quantidade
