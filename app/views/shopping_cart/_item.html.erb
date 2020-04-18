@@ -6,7 +6,7 @@
       <div class="row">
 
         <div class="col-8">
-          <%= image_tag 'placeholder.png', alt: item.product.title %>
+          <%= image_tag item.product.image_url || image_path('placeholder.png'), alt: item.product.title %>
           <%= item.product.title%>
         </div>
 
