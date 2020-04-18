@@ -50,6 +50,7 @@ fr-FR:
 
   shared:
     add_to_cart: Ajouter au panier
+    quantity_cart: "%{number} dans votre panier"
     last_auth_at: Dernière connexion le
     last_auth_ip: Dernière adresse IP de connexion
     browse_products: Parcourir les produits

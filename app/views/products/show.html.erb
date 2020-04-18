@@ -1,0 +1,41 @@
+
+<div class="col-12 col-md-7 mx-auto">
+  <div class="card-img" style="height: 300px; background-size: cover; background-image: url(<%= product.image_url.presence || image_url('placeholder.png')%>);"></div>
+
+  <div class="card-block card-body d-flex flex-column">
+    <h4 class="card-title"><%= product.title %></h4>
+
+    <h6 class="card-subtitle mb-2">
+      <% if product.in_stock? %>
+      <span class="text-success"><%= t('product.in_stock') %></span>
+      <% else %>
+      <span class="text-danger"><%= t('product.out_stock') %></span>
+      <% end %>
+    </h6>
+
+    <p class="card-text">
+      <%= product.description %>
+    </p>
+
+    <div class="tags">
+      <% product.tags.each do |tag|%>
+      <span class="badge badge-info"><%= tag %></span>
+      <% end %>
+    </div>
+
+    <div class="buy d-flex justify-content-between align-items-center mt-auto">
+      <div class="price <%= product.in_stock? ? 'text-success' : 'text-muted' %>">
+        <h5 class="mt-4"><%= number_to_currency product.price %></h5>
+      </div>
+      <% if in_shopping_cart?(product) %>
+        <%= link_to update_shopping_cart_path(product, 'product[quantity]' => 1, 'product[increment]' => true), method: :put, class: 'btn btn-info mt-3' do%>
+        <i class="fas fa-shopping-cart"></i> <%= t('shared.quantity_cart', number: get_product_amount(product)) %>
+        <% end %>
+      <% elsif product.in_stock? %>
+        <%= link_to update_shopping_cart_path(product, 'product[quantity]' => 1, 'product[increment]' => true), method: :put, class: 'btn btn-danger mt-3' do%>
+        <i class="fas fa-shopping-cart"></i> <%= t('shared.add_to_cart')%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

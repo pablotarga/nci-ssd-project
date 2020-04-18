@@ -50,6 +50,7 @@ pt-BR:
 
   shared:
     add_to_cart: Adicione ao Carrinho
+    quantity_cart: "%{number} incluido no Carrinho"
     last_auth_at: Último Acesso às
     last_auth_ip: IP do Último Acesso
     browse_products: Veja os Produtos
