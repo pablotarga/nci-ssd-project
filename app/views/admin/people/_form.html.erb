@@ -30,6 +30,11 @@
     <% end %>
   </div>
 
+  <div class="form-group form-check">
+    <%= f.check_box :admin, class: 'form-check-input' %>
+    <%= f.label :admin, class: 'form-check-label'%>
+  </div>
+
   <div class="form-group">
     <%= f.submit t('shared.save'),  class: 'btn btn-primary' %>
     <%= link_to t('shared.back'), admin_people_path, class: 'btn btn-link'%>
