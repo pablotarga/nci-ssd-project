@@ -10,6 +10,7 @@ class Admin::OrdersController < AdminController
 
   def update
     if order.update_attributes(update_params)
+      order.update_attribute(:dispatch_at, Time.now) if order.status_previously_changed? && order.dispatched?
       redirect_to admin_orders_path, notice: t('notices.saved_with_success')
     else
       flash[:alert] = order.errors.full_message
