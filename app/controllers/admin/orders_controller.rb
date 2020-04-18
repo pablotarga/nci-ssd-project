@@ -2,7 +2,7 @@ class Admin::OrdersController < AdminController
   before_action :order_required!, only: [:edit, :update]
 
   def index
-    @orders = Order.all
+    @orders = Order.order(created_at: :desc).all
   end
 
   def edit
