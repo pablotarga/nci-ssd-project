@@ -2,7 +2,7 @@ class Admin::ProductsController < AdminController
   before_action :product_required, only: [:edit, :update]
 
   def index
-    @products = Product.all
+    @products = Product.order(title: :asc).all
   end
 
   def edit
