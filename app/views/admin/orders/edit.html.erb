@@ -30,6 +30,7 @@
 
 <h3><small><i class="fas fa-fw fa-truck"></i></small> <%= t('.ship_to') %></h3>
 <div class="mb-5">
+  <p class="text-dark mb-1"><%= link_to @order.user.name, edit_admin_person_path(@order.user), class:'font-weight-bold' %></p>
   <p class="text-dark mb-1"><%= @order.delivery_country %></p>
   <p class="text-dark mb-1"><%= @order.delivery_administrative %></p>
   <p class="text-dark mb-1"><%= @order.delivery_city %></p>
@@ -54,15 +55,12 @@
           <td><%= l(item.created_at, format: :long) %></td>
           <td>
             <small><%= content_tag(:i, nil, class: 'fas fa-fw fa-exclamation-triangle cursor-help', title: item.reason) if item.reason.present?%></small>
-            <%= Payment.human_attribute_name('status/%s' % item.status) %></td>
+            <%= Payment.human_attribute_name('status/%s' % item.status) %>
+            <%= link_to(t('shared.refund'), admin_order_payment_path(order_id: item.order_id, id: item.id), method: :delete, confirm: t('shared.are_you_sure')) if item.complete? %>
+          </td>
           <td class="text-right"><%= number_to_currency(item.total, unit: "€") %></td>
         </tr>
       <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td class="text-right"><strong><%= number_to_currency(@order.total, unit: "€") %></strong></td>
-        </tr>
     </tbody>
   </table>
 </div>
