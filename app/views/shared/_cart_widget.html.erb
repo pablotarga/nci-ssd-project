@@ -1,0 +1,10 @@
+<%= link_to shopping_cart_path do %>
+<div id="cart-widget" class="<%= 'active' if shopping_cart_total_quantity > 0 %>">
+  <small class="d-block text-center"><%= t('shared.shopping_cart') %></small>
+  <div class="d-flex align-items-center justify-content-space-between">
+    <span class="amount"><%= shopping_cart_total_quantity %></span>
+    <span><i class="fas fa-fw fa-shopping-basket"></i></span>
+    <span class="total"><%= number_to_currency(shopping_cart_total) %></span>
+  </div>
+</div>
+<% end %>
