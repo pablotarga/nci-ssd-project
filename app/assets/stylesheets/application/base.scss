@@ -26,3 +26,16 @@ section.products{
   // background: linear-gradient(to top right, #ff5263e6 10%, #ff7381e6 65%, #fcbd01e6 125%);
   background: linear-gradient(to top right, #1FA2FF 10%, #12D8FA 65%, #A6FFCB 125%);
 }
+
+
+#navbar{
+  z-index: 100;
+}
+
+#cart-widget{
+  z-index: 50;
+}
+
+#content{
+  z-index: 10;
+}

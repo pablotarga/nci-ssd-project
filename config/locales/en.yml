@@ -59,6 +59,7 @@ en:
     login: Login
     see_shopping_cart: Access your Shopping Cart
     abandon: Abandon Shopping Cart
+    shopping_cart: Shopping Cart
     checkout: Checkout
     yes_no:
       'true': Yes
