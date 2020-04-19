@@ -3,7 +3,7 @@
 
   <section class="search">
     <%= form_tag(root_path, method: :get, remote: true) do %>
-    <%= text_field_tag :q, params[:q], placeholder: t('shared.search'), class: 'form-control' %>
+    <%= text_field_tag :q, params[:q], placeholder: t('shared.search'), class: 'form-control', autocomplete: 'off' %>
     <% end %>
   </section>
 
