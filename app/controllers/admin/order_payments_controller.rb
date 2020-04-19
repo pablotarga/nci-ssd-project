@@ -4,9 +4,9 @@ class Admin::OrderPaymentsController < AdminController
   def destroy
     refunding = ShoppingCartService.refund(payment)
     if refunding.success?
-      redirect_to edit_admin_order(order), notice: t('notices.refunded_with_success')
+      redirect_to edit_admin_order_path(order), notice: t('notices.refunded_with_success')
     else
-      redirect_to edit_admin_order(order), alert: refunding.errors
+      redirect_to edit_admin_order_path(order), alert: refunding.errors
     end
   end
 
@@ -17,7 +17,7 @@ class Admin::OrderPaymentsController < AdminController
     return if payment.present?
 
     if order.present?
-      redirect_to edit_admin_order(order), alert: t('errors.not_found')
+      redirect_to edit_admin_order_path(order), alert: t('errors.not_found')
     else
       redirect_to admin_orders_path, alert: t('errors.not_found')
     end
