@@ -59,6 +59,7 @@ fr-FR:
     login: Se connecter
     see_shopping_cart: Accéder au panier
     abandon: Abandonner le panier
+    shopping_cart: Panier
     checkout: Payer
     yes_no:
       'true': Oui

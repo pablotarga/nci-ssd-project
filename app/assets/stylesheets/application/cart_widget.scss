@@ -1,0 +1,23 @@
+#cart-widget{
+  position: fixed;
+  right: 1rem;
+  top: 0;
+  transition: top .3s ease-in-out, opacity .3s ease-in-out;
+  background-color: #eee;
+  padding: 10px 10px 3px;
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+
+  &.active{
+    top: 50px;
+    opacity: 1;
+    &:hover {
+      top: 70px;
+    }
+  }
+
+  span{
+    padding: 0 5px;
+    margin: 0;
+  }
+}

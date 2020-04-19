@@ -13,6 +13,8 @@ class ShoppingCartController < ApplicationController
     if process.success?
       @deleted = process.item_removed?
       @cart = service.cart
+      @total = @cart.calculate_total
+      @quantity = @cart.order_items.sum(:quantity)
       @order_item = process.get(:order_item)
       respond_to do |format|
         format.js
